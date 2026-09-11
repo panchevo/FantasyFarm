@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -234,7 +233,7 @@ body {
     border:1px solid var(--civ-bronze); box-shadow:inset 0 2px 4px rgba(0,0,0,.4);
 }
 #level-progress .goal-item { display:flex; align-items:center; gap:4px; font-size:.72rem; color: var(--civ-parchment-dark); font-family: var(--civ-font-body); }
-#level-progress .goal-item .goal-emoji { font-size:1.05rem; filter:drop-shadow(0 1px 1px rgba(0,0,0,.6)); }
+#level-progress .goal-item .goal-emoji { font-size:1.05rem; filter:drop-shadow(0 1px 1px rgba(0,0,0,.6)); display:inline-flex; align-items:center; }
 #level-progress .goal-item .goal-count { color: var(--civ-gold-bright); font-weight:bold; text-shadow:0 1px 2px rgba(0,0,0,.7); }
 #level-progress .goal-item.done .goal-count { color:#a8e070; text-shadow:0 0 6px rgba(168,224,112,.6); }
 #gem-counter {
@@ -247,14 +246,15 @@ body {
     box-shadow:inset 0 1px 0 rgba(255,220,150,.3), 0 0 14px rgba(212,169,74,.35);
     text-shadow:0 1px 2px rgba(0,0,0,.8);
 }
-#gem-counter span:first-child { font-size:1.6rem; margin-right:4px; filter:drop-shadow(0 0 4px rgba(120,200,255,.6)); }
+#gem-counter .icon-slot { display:inline-flex; align-items:center; }
 #resources-header { display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; color: var(--civ-parchment-dark); font-size:.8rem; }
 #resources-header .res-stat {
     display:flex; align-items:center; gap:5px; background:rgba(0,0,0,.4);
     padding:2px 10px 2px 7px; border-radius:8px; border:1px solid var(--civ-bronze);
     box-shadow:inset 0 1px 3px rgba(0,0,0,.4); font-family: var(--civ-font-body);
 }
-#resources-header .res-stat span {
+#resources-header .res-stat .icon-slot { display:inline-flex; align-items:center; }
+#resources-header .res-stat span.num {
     background:rgba(0,0,0,.55); padding:0 7px; border-radius:6px;
     color: var(--civ-gold-bright); font-weight:bold; min-width:20px; text-align:center;
     border:1px solid rgba(212,169,74,.4);
@@ -268,6 +268,7 @@ body {
     box-shadow:inset 0 1px 0 rgba(255,220,150,.2), 0 2px 5px rgba(0,0,0,.5);
     white-space:nowrap; font-family: var(--civ-font-body); letter-spacing:.5px; position:relative;
 }
+.shop-btn .icon-slot { display:inline-flex; align-items:center; }
 .shop-btn::before { content:''; position:absolute; inset:1px; border:1px solid rgba(255,220,150,.12); border-radius:8px; pointer-events:none; }
 .shop-btn:hover:not(:disabled) {
     background:linear-gradient(180deg,#8a6a3a 0%,#6a5230 50%,#4a3a1e 100%);
@@ -277,7 +278,7 @@ body {
 }
 .shop-btn:active:not(:disabled) { transform:translateY(0); box-shadow: var(--civ-shadow-inset); }
 .shop-btn:disabled { opacity:.4; cursor:not-allowed; filter:grayscale(.6); }
-.shop-btn .cost { background:rgba(0,0,0,.5); padding:0 7px; border-radius:6px; color: var(--civ-gold-bright); font-size:.7rem; border:1px solid rgba(212,169,74,.4); }
+.shop-btn .cost { background:rgba(0,0,0,.5); padding:0 7px; border-radius:6px; color: var(--civ-gold-bright); font-size:.7rem; border:1px solid rgba(212,169,74,.4); display:inline-flex; align-items:center; gap:2px; }
 
 
 #field {
@@ -303,6 +304,7 @@ body {
     background:rgba(20,30,40,.85); color:#8ad4ff; font-size:.55rem;
     padding:1px 10px; border-radius:8px; white-space:nowrap; border:1px solid #4a7a9a;
     backdrop-filter:blur(2px); font-family: var(--civ-font-body); box-shadow:0 2px 4px rgba(0,0,0,.5);
+    display:flex; align-items:center; gap:3px;
 }
 .well .well-label {
     position:absolute; bottom:-28px; left:50%; transform:translateX(-50%);
@@ -400,7 +402,6 @@ body {
 .creature.walking .tail-group { animation:walkTail .8s ease-in-out infinite; transform-origin:left center; }
 .creature.walking .head-group { animation:walkBody .8s ease-in-out infinite reverse; }
 
-/* ---------- ЗМЕЙ: ПОЛЗАНИЕ ---------- */
 @keyframes zmeySlither {
     0%,100% { transform: translateY(0) rotate(0deg); }
     25%     { transform: translateY(-2px) rotate(-1.5deg); }
@@ -454,6 +455,7 @@ body {
     box-shadow:0 0 50px rgba(212,169,74,.6), 0 8px 24px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.6);
     pointer-events:none; transition:opacity .3s, transform .3s; opacity:0; z-index:20; text-align:center;
     text-shadow:0 1px 0 rgba(255,240,200,.5); max-width:80%;
+    display:flex; align-items:center; justify-content:center; gap:8px;
 }
 #harvest-popup.show { opacity:1; transform:translate(-50%,0); }
 #build-panel {
@@ -495,9 +497,10 @@ body {
 .build-item.disabled { opacity:.5; cursor:not-allowed; filter:grayscale(.6); }
 .build-item.disabled:hover { transform:none; border-color: var(--civ-bronze); background:linear-gradient(180deg,rgba(90,67,34,.55) 0%,rgba(46,34,16,.75) 100%); }
 .build-item .build-top { display:flex; align-items:center; gap:8px; }
-.build-item .build-emoji { font-size:1.65rem; width:34px; text-align:center; flex-shrink:0; filter:drop-shadow(0 2px 3px rgba(0,0,0,.6)); }
+.build-item .build-emoji { font-size:1.65rem; width:34px; text-align:center; flex-shrink:0; filter:drop-shadow(0 2px 3px rgba(0,0,0,.6)); display:flex; align-items:center; justify-content:center; }
+.build-item .build-emoji svg { width:32px; height:32px; display:block; }
 .build-item .build-name { color: var(--civ-parchment); font-size:.78rem; font-weight:600; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family: var(--civ-font-display); letter-spacing:.3px; text-shadow:0 1px 2px rgba(0,0,0,.6); }
-.build-item .build-cost { color: var(--civ-gold-bright); font-size:.72rem; background:rgba(0,0,0,.5); padding:0 9px; border-radius:8px; border:1px solid var(--civ-bronze); white-space:nowrap; flex-shrink:0; font-weight:bold; text-shadow:0 1px 2px rgba(0,0,0,.8); }
+.build-item .build-cost { color: var(--civ-gold-bright); font-size:.72rem; background:rgba(0,0,0,.5); padding:0 9px; border-radius:8px; border:1px solid var(--civ-bronze); white-space:nowrap; flex-shrink:0; font-weight:bold; text-shadow:0 1px 2px rgba(0,0,0,.8); display:inline-flex; align-items:center; gap:2px; }
 .build-item .build-desc { color:#b8a888; font-size:.62rem; padding-left:42px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-style:italic; }
 .build-item .build-status { color:#ff8866; font-size:.6rem; padding-left:42px; font-weight:bold; }
 #info-panel {
@@ -518,8 +521,9 @@ body {
     padding:2px 8px 2px 6px; border-radius:10px; border:1px solid var(--civ-bronze);
     flex-wrap:wrap; box-shadow:inset 0 1px 3px rgba(0,0,0,.4);
 }
-.stat-item span { background:rgba(0,0,0,.55); padding:0 7px; border-radius:6px; color: var(--civ-gold-bright); font-weight:bold; min-width:20px; text-align:center; border:1px solid rgba(212,169,74,.35); }
-.stat-item .stat-emoji { font-size:.95rem; background:transparent; padding:0; min-width:auto; border:none; filter:drop-shadow(0 1px 2px rgba(0,0,0,.5)); }
+.stat-item span.num { background:rgba(0,0,0,.55); padding:0 7px; border-radius:6px; color: var(--civ-gold-bright); font-weight:bold; min-width:20px; text-align:center; border:1px solid rgba(212,169,74,.35); }
+.stat-item .stat-emoji { font-size:.95rem; background:transparent; padding:0; min-width:auto; border:none; filter:drop-shadow(0 1px 2px rgba(0,0,0,.5)); display:inline-flex; align-items:center; }
+.stat-item .stat-emoji svg { width:20px; height:20px; display:block; }
 .sell-all-btn {
     background:linear-gradient(180deg,#6a8a3a 0%,#4a6a2a 50%,#2a4a1a 100%);
     border:2px solid var(--civ-bronze); color:#e8f5d0; padding:3px 20px; border-radius:12px;
@@ -557,6 +561,7 @@ body {
     border:1px solid rgba(212,169,74,.35); font-size:.72rem; color: var(--civ-parchment);
     display:flex; align-items:center; gap:4px; box-shadow:inset 0 1px 2px rgba(0,0,0,.4);
 }
+.processed-resources .proc-item svg { width:16px; height:16px; }
 #level-complete {
     position:fixed; inset:0; background:rgba(10,6,4,.82); backdrop-filter:blur(8px);
     display:none; align-items:center; justify-content:center; z-index:100; flex-direction:column;
@@ -625,6 +630,7 @@ body {
     .level-btn .level-num { font-size:1.2rem; }
     #build-panel { width:170px; padding:8px 10px; }
     .build-item .build-emoji { font-size:1.3rem; width:26px; }
+    .build-item .build-emoji svg { width:24px; height:24px; }
     .build-item .build-name { font-size:.68rem; }
     .build-item .build-cost { font-size:.62rem; padding:0 6px; }
     .build-item .build-desc { font-size:.55rem; padding-left:34px; }
@@ -651,6 +657,7 @@ body {
     #level-menu h1 { font-size:1.6rem; }
     #build-panel { width:140px; padding:5px 5px; }
     .build-item .build-emoji { font-size:1.05rem; width:22px; }
+    .build-item .build-emoji svg { width:20px; height:20px; }
     .build-item .build-name { font-size:.58rem; }
     .build-item .build-cost { font-size:.52rem; padding:0 4px; }
     .build-item .build-desc { font-size:.48rem; padding-left:26px; }
@@ -677,9 +684,6 @@ body {
     #field { margin:1px 2px; }
     #info-panel { margin:0 2px 1px 2px; }
 }
-
-
-
 
 #level-menu {
     position:fixed; inset:0; z-index:1000;
@@ -719,7 +723,6 @@ body {
 }
 #level-menu::-webkit-scrollbar-corner { background: #1a1008; }
 
-
 #game-wrapper.hidden { display: none; }
 
 .level-btn .level-name {
@@ -753,9 +756,6 @@ body {
     0%   { opacity: 1; transform: translateY(0) scale(1); }
     100% { opacity: 0; transform: translateY(-30px) scale(1.6); }
 }
-
-
-
 
 #hero-menu {
     position:fixed; inset:0; z-index:1900;
@@ -946,7 +946,6 @@ body {
     transition: all 1.5s ease;
 }
 
-
 .grass {
     position: absolute;
     width: 44px;
@@ -975,7 +974,6 @@ body {
     opacity: 0;
     transition: all .8s ease;
 }
-
 
 #pause-box {
     position: fixed;
@@ -1069,7 +1067,6 @@ body {
     background: linear-gradient(180deg,rgba(138,106,58,.8) 0%,rgba(74,58,30,.9) 100%);
 }
 
-/* ============ ОБЩИЙ СТИЛЬ МОДАЛЬНЫХ ОКОН ============ */
 .civ-modal {
     position: fixed;
     inset: 0;
@@ -1375,6 +1372,14 @@ body {
     z-index: 0;
 }
 
+
+#level-progress .goal-item .goal-emoji svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+
 </style>
 </head>
 <body>
@@ -1432,21 +1437,14 @@ body {
                     <span id="levelProgressText" style="font-size:0.8rem;color:#cfdbb0;"></span>
                 </div>
                 <div id="level-progress"></div>
-                <div id="gem-counter"><span>💎</span> <span id="gemsDisplay">15</span></div>
+                <div id="gem-counter"><span class="icon-slot" id="gemIconSlot"></span> <span id="gemsDisplay">15</span></div>
                 <div id="resources-header">
-                    <div class="res-stat">🌿 <span id="grassCount">0</span></div>
-                    <div class="res-stat">💧 <span id="waterCount">5</span></div>
-                    <div class="res-stat">🐾 <span id="creatureCount">0</span></div>
+                    <div class="res-stat"><span class="icon-slot" id="grassIconSlot"></span> <span class="num" id="grassCount">0</span></div>
+                    <div class="res-stat"><span class="icon-slot" id="waterIconSlot"></span> <span class="num" id="waterCount">5</span></div>
+                    <div class="res-stat"><span class="icon-slot" id="pawIconSlot"></span> <span class="num" id="creatureCount">0</span></div>
                 </div>
             </div>
-            <div id="shop">
-                <button class="shop-btn" data-creature="firebird">🐦 Жар-птица <span class="cost">💎15</span></button>
-                <button class="shop-btn" data-creature="zmey">🐉 Огненный змей <span class="cost">💎10</span></button>
-                <button class="shop-btn" data-creature="volkolak">🐺 Волколак <span class="cost">💎12</span></button>
-                <button class="shop-btn" data-creature="nochnitsa">🌙 Ночница <span class="cost">💎18</span></button>
-                <button class="shop-btn" data-creature="basilisk">🐍 Василиск <span class="cost">💎20</span></button>
-                <button class="shop-btn" data-creature="unicorn">🦄 Единорог <span class="cost">💎35</span></button>
-            </div>
+            <div id="shop"></div>
         </div>
 
         <div id="field">
@@ -1454,12 +1452,12 @@ body {
         </div>
 
         <div id="info-panel">
-            <div class="stat-item"><span class="stat-emoji">𓆰</span> <span id="stat-firebird">0</span></div>
-            <div class="stat-item"><span class="stat-emoji">🔥</span> <span id="stat-zmey">0</span></div>
-            <div class="stat-item"><span class="stat-emoji">🛡️</span> <span id="stat-volkolak">0</span></div>
-            <div class="stat-item"><span class="stat-emoji">🌙</span> <span id="stat-nochnitsa">0</span></div>
-            <div class="stat-item"><span class="stat-emoji">🥚</span> <span id="stat-basilisk">0</span></div>
-            <div class="stat-item"><span class="stat-emoji">🪨</span> <span id="stat-unicorn">0</span></div>
+            <div class="stat-item"><span class="stat-emoji" id="ico-firebird"></span> <span class="num" id="stat-firebird">0</span></div>
+            <div class="stat-item"><span class="stat-emoji" id="ico-zmey"></span> <span class="num" id="stat-zmey">0</span></div>
+            <div class="stat-item"><span class="stat-emoji" id="ico-volkolak"></span> <span class="num" id="stat-volkolak">0</span></div>
+            <div class="stat-item"><span class="stat-emoji" id="ico-nochnitsa"></span> <span class="num" id="stat-nochnitsa">0</span></div>
+            <div class="stat-item"><span class="stat-emoji" id="ico-basilisk"></span> <span class="num" id="stat-basilisk">0</span></div>
+            <div class="stat-item"><span class="stat-emoji" id="ico-unicorn"></span> <span class="num" id="stat-unicorn">0</span></div>
             <div class="processed-resources" id="processedDisplay"></div>
             <button class="sell-all-btn" id="sellAllBtn">💰 Продать все</button>
             <button id="reset-btn" onclick="resetCurrentLevel()">⟳ Сброс</button>
@@ -1567,13 +1565,155 @@ function stopMusic() {
 document.addEventListener('click', startMusicOnce);
 document.addEventListener('keydown', startMusicOnce);
 
+// ===== ИКОНКИ СУЩЕСТВ — ГОЛОВЫ В ПРОФИЛЬ =====
+const CREATURE_ICONS = {
+    // Жар-птица — голова с хохолком и длинным пером
+    firebird: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="fbIcoBody" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffe884"/>
+                <stop offset="55%" stop-color="#ff9022"/>
+                <stop offset="100%" stop-color="#c42a08"/>
+            </linearGradient>
+        </defs>
+        <path d="M3 15 Q3 9 9 8 Q15 7 19 10 Q21 12 21 14 Q21 17 18 18 Q12 20 7 19 Q3 18 3 15 Z"
+              fill="url(#fbIcoBody)"/>
+        <path d="M9 8 Q10 4 13 3 Q15 2 17 4 Q15 5 14 7 Q13 9 12 10 Z" fill="#ffd75a"/>
+        <path d="M13 3 Q15 0 18 1 Q16 2 15 4 Z" fill="#fff2a0"/>
+        <path d="M17 4 Q20 3 22 5 Q20 5 18 6 Z" fill="#ffd75a"/>
+        <path d="M21 14 L24 15 L21 17 Z" fill="#ffdd55" stroke="#a87a2a" stroke-width="0.6"/>
+        <ellipse cx="17" cy="12" rx="1.6" ry="1.8" fill="#1a0010"/>
+        <circle cx="17.5" cy="11.4" r="0.6" fill="#fff"/>
+        <path d="M20 18 Q21 20 20 22 Q19 20 18 19 Z" fill="#e0430a"/>
+        <path d="M5 17 Q6 20 5 22 Q4 19 3 18 Z" fill="#9a2808"/>
+    </svg>`,
 
+    // Огненный змей — вытянутая морда, рог, пламя из пасти
+    zmey: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="zmIcoHead" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#7a1a05"/>
+                <stop offset="60%" stop-color="#c93a10"/>
+                <stop offset="100%" stop-color="#ff7a22"/>
+            </linearGradient>
+        </defs>
+        <path d="M2 13 Q4 9 9 9 Q15 9 19 11 Q22 12 22 14 Q22 16 19 16 Q14 17 9 16 Q4 16 2 13 Z"
+              fill="url(#zmIcoHead)"/>
+        <path d="M10 9 L11 4 L13 9 Z" fill="#ffcc44" stroke="#a85a10" stroke-width="0.6"/>
+        <path d="M14 8 L16 3 L17 8 Z" fill="#ffcc44" stroke="#a85a10" stroke-width="0.6"/>
+        <path d="M3 12 L0 10 L1 13 L0 16 L3 15 Z" fill="#ff5500"/>
+        <ellipse cx="17" cy="12" rx="1.4" ry="1.6" fill="#ffdd44"/>
+        <ellipse cx="17.3" cy="12" rx="0.6" ry="1.4" fill="#220000"/>
+        <path d="M22 14 Q24 13 24 15" stroke="#ff3344" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <path d="M21 15 Q23 16 24 18" stroke="#ff8833" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M6 16 Q7 18 6 20" stroke="#ffaa22" stroke-width="0.8" fill="none"/>
+    </svg>`,
 
+    // Волколак — волчья морда, уши торчком, клык
+    volkolak: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="vkIcoHead" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8a6f4a"/>
+                <stop offset="100%" stop-color="#4a3520"/>
+            </linearGradient>
+        </defs>
+        <path d="M6 6 L4 1 L9 5 Z" fill="#4a3520"/>
+        <path d="M15 5 L18 1 L19 6 Z" fill="#4a3520"/>
+        <path d="M5 8 Q6 5 10 5 Q16 5 19 8 Q21 11 20 14 Q19 18 15 19 Q10 20 7 18 Q4 15 5 8 Z"
+              fill="url(#vkIcoHead)"/>
+        <path d="M19 13 Q23 14 24 15 Q22 16 19 16 Z" fill="#5a3f2a"/>
+        <ellipse cx="16" cy="11" rx="1.6" ry="1.4" fill="#ffcc44"/>
+        <ellipse cx="16.3" cy="11" rx="0.7" ry="1.2" fill="#111"/>
+        <circle cx="17.2" cy="10.5" r="0.4" fill="#fff"/>
+        <ellipse cx="22" cy="14.5" rx="1.2" ry="1" fill="#1a0a00"/>
+        <path d="M15 16 L14 19 L16 18 Z" fill="#fff"/>
+        <path d="M9 17 Q8 19 9 21" stroke="#2a1a0a" stroke-width="0.8" fill="none"/>
+    </svg>`,
+
+    // Ночница — закутанная голова, светящиеся глаза в темноте
+    nochnitsa: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <radialGradient id="nchIcoGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#aa88ff" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#aa88ff" stop-opacity="0"/>
+            </radialGradient>
+        </defs>
+        <ellipse cx="13" cy="12" rx="10" ry="8" fill="url(#nchIcoGlow)"/>
+        <path d="M4 12 Q4 6 10 5 Q16 4 20 8 Q22 11 21 14 Q20 18 15 19 Q8 20 5 17 Q3 15 4 12 Z"
+              fill="#3a2a5a"/>
+        <path d="M4 12 Q3 8 5 5 Q7 3 10 5 Q8 8 8 12 Z" fill="#2a1a4a"/>
+        <path d="M20 8 Q22 5 24 6 Q22 8 21 10 Z" fill="#5a3a7a"/>
+        <ellipse cx="15" cy="12" rx="2" ry="2.4" fill="#aa88ff"/>
+        <ellipse cx="15" cy="12" rx="0.9" ry="1.6" fill="#fff"/>
+        <ellipse cx="20" cy="13" rx="1.6" ry="2" fill="#aa88ff"/>
+        <ellipse cx="20" cy="13" rx="0.7" ry="1.3" fill="#fff"/>
+        <path d="M18 17 Q20 18 21 20" stroke="#6a4a8a" stroke-width="1" fill="none" stroke-linecap="round"/>
+    </svg>`,
+
+    // Василиск — змеиная голова, гребень, раздвоенный язык
+    basilisk: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="bsIcoHead" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#1a5a2a"/>
+                <stop offset="60%" stop-color="#3a8a4a"/>
+                <stop offset="100%" stop-color="#5aaa5a"/>
+            </linearGradient>
+        </defs>
+        <path d="M3 12 Q5 8 10 8 Q16 8 20 10 Q22 12 21 14 Q20 16 16 17 Q10 18 6 16 Q3 15 3 12 Z"
+              fill="url(#bsIcoHead)"/>
+        <path d="M9 8 L8 4 L10 6 L11 3 L12 6 L14 4 L14 8 Z" fill="#4a9a5a" stroke="#1a5a2a" stroke-width="0.5"/>
+        <path d="M16 9 L17 6 L18 9 Z" fill="#4a9a5a"/>
+        <ellipse cx="16" cy="11" rx="1.4" ry="1.6" fill="#ff4444"/>
+        <ellipse cx="16.3" cy="11" rx="0.5" ry="1.4" fill="#220000"/>
+        <circle cx="17.1" cy="10.4" r="0.4" fill="#fff"/>
+        <path d="M21 14 L24 13 M21 14 L24 15" stroke="#ff3344" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+        <path d="M8 16 L7 19 L9 18 Z" fill="#fff"/>
+        <path d="M12 17 L11 20 L13 19 Z" fill="#fff"/>
+    </svg>`,
+
+    // Единорог — лошадиная морда, рог, грива
+    unicorn: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="unIcoHead" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#fff6e8"/>
+                <stop offset="100%" stop-color="#d8c4a0"/>
+            </linearGradient>
+            <linearGradient id="unIcoHorn" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#ffcc55"/>
+                <stop offset="100%" stop-color="#fff6c0"/>
+            </linearGradient>
+        </defs>
+        <path d="M5 8 Q6 4 11 4 Q17 4 20 8 Q22 11 21 15 Q20 19 15 20 Q9 20 6 17 Q4 14 5 8 Z"
+              fill="url(#unIcoHead)"/>
+        <path d="M11 4 L10 -1 L13 3 Z" fill="url(#unIcoHorn)" stroke="#a87a20" stroke-width="0.5"/>
+        <path d="M5 8 Q4 5 6 3 Q8 2 10 4 Q7 5 7 8 Z" fill="#ff88aa" opacity="0.75"/>
+        <path d="M6 12 Q5 15 6 18" stroke="#ff88aa" stroke-width="1.2" fill="none" opacity="0.7"/>
+        <path d="M5 9 Q3 8 2 10 Q3 11 5 11" fill="#f0e6d0"/>
+        <ellipse cx="16" cy="11" rx="1.5" ry="1.7" fill="#88ccff"/>
+        <ellipse cx="16.3" cy="11" rx="0.6" ry="1.4" fill="#111"/>
+        <circle cx="17.1" cy="10.4" r="0.4" fill="#fff"/>
+        <ellipse cx="21" cy="15" rx="1.2" ry="1" fill="#d4c4a8"/>
+        <path d="M7 17 Q8 19 7 21" stroke="#d4c4a8" stroke-width="0.8" fill="none"/>
+    </svg>`
+};
+// ===== SVG-ИКОНКИ КРАФТА =====
+const CRAFT_ICONS = {
+    nest: `<svg viewBox="0 0 24 24" width="18" height="18"><ellipse cx="12" cy="14" rx="7" ry="5" fill="#aaccff" opacity="0.6"/><ellipse cx="12" cy="13" rx="5" ry="4" fill="#ccddff"/><path d="M7 12 Q12 7 17 12" stroke="#88aaff" stroke-width="1.2" fill="none"/><circle cx="9" cy="11" r="1" fill="#ffdd88"/><circle cx="15" cy="11" r="1" fill="#ffdd88"/></svg>`,
+    forge: `<svg viewBox="0 0 24 24" width="18" height="18"><polygon points="12,2 20,10 12,22 4,10" fill="#88ddff" opacity="0.9"/><polygon points="12,5 17,11 12,19 7,11" fill="#bbeeff"/><polygon points="12,8 15,12 12,17 9,12" fill="#ffffff" opacity="0.5"/></svg>`,
+    wolf:  `<svg viewBox="0 0 24 24" width="18" height="18"><rect x="5" y="8" width="14" height="12" rx="2" fill="#8a6f4a"/><rect x="8" y="11" width="8" height="7" rx="1.5" fill="#6b4f3a"/><path d="M5 8 L8 5 L16 5 L19 8" fill="#7a5f4a"/></svg>`,
+    lunar: `<svg viewBox="0 0 24 24" width="18" height="18"><rect x="9" y="6" width="6" height="12" rx="1.5" fill="#aa88ff" opacity="0.5"/><rect x="10" y="7" width="4" height="10" rx="1" fill="#ccaaFF"/><circle cx="12" cy="13" r="2.4" fill="#ddccff" opacity="0.6"/><path d="M10 6 L12 3 L14 6" stroke="#aa88ff" stroke-width="1.4" fill="none"/></svg>`,
+    gorgon:`<svg viewBox="0 0 24 24" width="18" height="18"><rect x="6" y="8" width="12" height="12" rx="1.5" fill="#6a6a5a"/><rect x="8" y="10" width="8" height="8" rx="1" fill="#8a8a7a"/><circle cx="10" cy="13" r="1.4" fill="#ff8844"/><circle cx="14" cy="13" r="1.4" fill="#ff8844"/><path d="M10 16 L12 18 L14 16" stroke="#4a4a3a" stroke-width="1" fill="none"/></svg>`,
+    philosopher:`<svg viewBox="0 0 24 24" width="18" height="18"><ellipse cx="12" cy="12" rx="7" ry="9" fill="#88cc88" opacity="0.4"/><ellipse cx="12" cy="11" rx="5" ry="6" fill="#aaddaa"/><circle cx="12" cy="11" r="2.4" fill="#ffee88"/><path d="M9 6 L12 3 L15 6" stroke="#88cc88" stroke-width="1.4" fill="none"/></svg>`
+};
+
+// ===== SVG-ИКОНКИ ВАЛЮТЫ =====
+const ICON_GEM  = `<svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gemIco" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e8f6ff"/><stop offset="45%" stop-color="#7ec8ff"/><stop offset="100%" stop-color="#2a6aaa"/></linearGradient></defs><polygon points="12,2 21,9 12,22 3,9" fill="url(#gemIco)" stroke="#1a4a7a" stroke-width="1"/><polygon points="12,5 17,10 12,18 7,10" fill="#c8ecff" opacity="0.6"/><path d="M8 9 L16 9" stroke="#ffffff" stroke-width="1" opacity="0.7"/></svg>`;
+const ICON_WATER= `<svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="waterIco" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#bde6ff"/><stop offset="60%" stop-color="#4aa8e8"/><stop offset="100%" stop-color="#1a5a9a"/></linearGradient></defs><path d="M12 2 C12 2 5 10 5 15 A7 7 0 0 0 19 15 C19 10 12 2 12 2 Z" fill="url(#waterIco)" stroke="#1a4a7a" stroke-width="1"/><ellipse cx="9.5" cy="13" rx="2" ry="3" fill="#ffffff" opacity="0.55"/></svg>`;
+const ICON_GRASS= `<svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="grassIco" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#1a5a1a"/><stop offset="70%" stop-color="#3a9a3a"/><stop offset="100%" stop-color="#7ad84a"/></linearGradient></defs><path d="M7 22 Q5 14 6 6" stroke="url(#grassIco)" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M17 22 Q19 14 18 6" stroke="url(#grassIco)" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M10 22 Q9 12 11 3" stroke="url(#grassIco)" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M14 22 Q15 12 13 3" stroke="url(#grassIco)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`;
+const ICON_PAW  = `<svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="15" rx="5" ry="4" fill="#c9a86a"/><circle cx="7" cy="10" r="2" fill="#c9a86a"/><circle cx="11" cy="7" r="2" fill="#c9a86a"/><circle cx="15" cy="8" r="2" fill="#c9a86a"/><circle cx="18" cy="11" r="2" fill="#c9a86a"/></svg>`;
 
 // ============================================================
 //  ★★★ СТАБИЛИЗИРОВАННЫЕ УРОВНИ ★★★
-//  Правило баланса: 1 существо = ~8 ресурсов/мин.
-//  4 существа = ~32 ресурса/мин. За 3 минуты = ~100 ресурсов.
 // ============================================================
 const LEVELS = [
     { id:1,  name:"Перо Жар-птицы",
@@ -1707,7 +1847,6 @@ const LEVELS = [
       starThresholds:[600,800,1000] }
 ];
 
-// ★ Перебалансированные лимиты времени
 const TIME_LIMITS = [
     120, 150, 180, 200, 180,
     220, 200, 240, 240, 280,
@@ -2000,6 +2139,20 @@ const RESOURCE_SVGS = {
     unicorn: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="14" ry="10" fill="#f0e6d0"/><ellipse cx="24" cy="22" rx="10" ry="8" fill="#fff6e8"/><circle cx="18" cy="20" r="3" fill="#88ccff"/><circle cx="30" cy="20" r="3" fill="#88ccff"/><circle cx="18" cy="20" r="1.5" fill="#111"/><circle cx="30" cy="20" r="1.5" fill="#111"/><polygon points="24,10 22,18 26,18" fill="#ffdd77"/></svg>`
 };
 
+
+
+// ===== ИКОНКИ РЕСУРСОВ (те же SVG, что падают на поле) =====
+const RESOURCE_ICONS = {
+    firebird:  RESOURCE_SVGS.firebird,
+    zmey:      RESOURCE_SVGS.zmey,
+    volkolak:  RESOURCE_SVGS.volkolak,
+    nochnitsa: RESOURCE_SVGS.nochnitsa,
+    basilisk:  RESOURCE_SVGS.basilisk,
+    unicorn:   RESOURCE_SVGS.unicorn
+};
+
+
+
 const DETAILED_GRASS_SVG = () => `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <linearGradient id="blade1" x1="0" y1="1" x2="0" y2="0">
@@ -2071,7 +2224,6 @@ const DETAILED_GRASS_SVG = () => `<svg viewBox="0 0 40 40" xmlns="http://www.w3.
     let resources = { firebird:0, zmey:0, volkolak:0, nochnitsa:0, basilisk:0, unicorn:0 };
     let craftedItems = { nest:0, forge:0, wolf:0, lunar:0, gorgon:0, philosopher:0 };
 
-// Накопительные счётчики для целей задания — НЕ обнуляются при продаже
 let totalResources = { firebird:0, zmey:0, volkolak:0, nochnitsa:0, basilisk:0, unicorn:0 };
 let totalCrafted   = { nest:0, forge:0, wolf:0, lunar:0, gorgon:0, philosopher:0 };
 let totalCreatures = { firebird:0, zmey:0, volkolak:0, nochnitsa:0, basilisk:0, unicorn:0 };
@@ -2738,7 +2890,6 @@ function checkGoal(goal) {
         levelCompleted[currentLevel] = true;
         if (currentLevel + 1 > unlockedLevel && currentLevel + 1 < LEVELS.length) unlockedLevel = currentLevel + 1;
 
-        // ★ Бонус за оставшееся время
         const timeBonus = Math.floor(Math.max(0, timeLeft) / 10);
         gems += timeBonus;
 
@@ -2775,12 +2926,12 @@ function checkGoal(goal) {
         for (let goal of level.goals) {
             const div = document.createElement('div');
             div.className = 'goal-item';
-            let emoji='📦', current=0, total=goal.count;
-        if (goal.type==='resource') { const t=CREATURE_TYPES[goal.id]; emoji=t?t.resEmoji:'📦'; current = totalResources[goal.id] || 0; }
-else if (goal.type==='crafted') { const p=CRAFTED_PRODUCTS[goal.id]; emoji=p?p.emoji:'🔧'; current = totalCrafted[goal.id] || 0; }
-else if (goal.type==='creature') { const t=CREATURE_TYPES[goal.id]; emoji=t?t.emoji:'🐾'; current = totalCreatures[goal.id] || 0; }
+            let emoji='', current=0, total=goal.count;
+     if (goal.type==='resource') { emoji = RESOURCE_ICONS[goal.id] || ''; current = totalResources[goal.id] || 0; }
+else if (goal.type==='crafted') { emoji = CRAFT_ICONS[goal.id] || ''; current = totalCrafted[goal.id] || 0; }
+else if (goal.type==='creature') { emoji = CREATURE_ICONS[goal.id] || ''; current = totalCreatures[goal.id] || 0; }
 else if (goal.type==='building') {
-            const b=BUILDING_RECIPES[goal.id]; emoji=b?b.emoji:'🏗️';
+            emoji = CRAFT_ICONS[goal.id] || '';
             current = buildings.filter(x => x.craftType === goal.id).length;
         }
             else if (goal.type==='score') { emoji='⭐'; current=getScore(); }
@@ -2821,7 +2972,7 @@ else if (goal.type==='building') {
     }
     function updateProcessedDisplay() {
         const items = [];
-        for (let [key,count] of Object.entries(craftedItems)) if (count>0) { const p=CRAFTED_PRODUCTS[key]; items.push(`<span class="proc-item">${p.emoji} ${count}</span>`); }
+        for (let [key,count] of Object.entries(craftedItems)) if (count>0) { const ico=CRAFT_ICONS[key]||''; items.push(`<span class="proc-item">${ico} ${count}</span>`); }
         processedDisplay.innerHTML = items.join(' ');
     }
     function updateShopButtons() {
@@ -2833,7 +2984,7 @@ else if (goal.type==='building') {
             btn.disabled = !available || isLevelComplete;
             btn.style.opacity = available ? '1' : '0.3';
             const costSpan = btn.querySelector('.cost');
-            if (costSpan) costSpan.textContent = '💎' + getCreatureCost(type);
+            if (costSpan) costSpan.innerHTML = ICON_GEM + ' ' + getCreatureCost(type);
         });
     }
     function updateSellButton() {
@@ -2842,7 +2993,7 @@ else if (goal.type==='building') {
         else { sellAllBtn.classList.remove('level-complete'); sellAllBtn.textContent='💰 Продать все'; }
     }
 function showHarvestPopup(text, type) {
-    popup.textContent = text || '✨ Собрано!';
+    popup.innerHTML = text || '✨ Собрано!';
     popup.classList.remove('popup-success', 'popup-error', 'popup-info');
 
     if (!type) {
@@ -2917,7 +3068,7 @@ function createWell() {
     const div = document.createElement('div');
     div.className = 'well';
     div.innerHTML = DETAILED_WELL_SVG() +
-        `<span class="well-water-label">💧 <span id="wellWaterDisplay">${Math.floor(water)}</span></span>
+        `<span class="well-water-label">${ICON_WATER} <span id="wellWaterDisplay">${Math.floor(water)}</span></span>
          <span class="well-label">Колодец</span>`;
     div.style.left = (pos.x - 31) + 'px';
     div.style.top  = (pos.y - 31) + 'px';
@@ -2925,10 +3076,9 @@ function createWell() {
 
     well = {
         x: pos.x, y: pos.y, element: div, water,
-        // ★ Смягчённый кулдаун
         cooldown: 0,
-        cooldownDuration: 3000,   // было 5000
-        waterPerClick: 5          // было 3
+        cooldownDuration: 3000,
+        waterPerClick: 5
     };
 
     div.addEventListener('click', (e) => {
@@ -2948,7 +3098,6 @@ function createWell() {
         return;
     }
 
-    // ★ Потолок воды поднят до 15
     const MAX_WATER = 15;
     const before = water;
     water = Math.min(MAX_WATER, water + well.waterPerClick);
@@ -3006,7 +3155,7 @@ function startWellCooldownLoop() {
             well.element.style.opacity = '0.7';
             well.element.style.cursor = 'not-allowed';
         } else {
-            if (label) label.innerHTML = `💧 <span id="wellWaterDisplay">${Math.floor(water)}</span>`;
+            if (label) label.innerHTML = `${ICON_WATER} <span id="wellWaterDisplay">${Math.floor(water)}</span>`;
             well.element.style.opacity = '1';
             well.element.style.cursor = 'pointer';
         }
@@ -3099,7 +3248,6 @@ if (isLevelComplete || isTimeUp || isPaused) return;
     updateUI();
 }
 
-// ★ Смягчённый голод
 function applyHungerTick(c) {
     if (c.hp < c.maxHp) {
         c.hungerTimer += 2.5;
@@ -3173,7 +3321,7 @@ totalResources[obj.resType] = (totalResources[obj.resType] || 0) + 1;
         if (obj.element?.parentNode) obj.element.remove();
         const idx=resourcesOnField.indexOf(obj); if(idx!==-1) resourcesOnField.splice(idx,1);
         const type=CREATURE_TYPES[obj.type];
-showHarvestPopup(`+1 ${type.resName} (${type.resEmoji})`);
+showHarvestPopup(`+1 ${type.resName} ${RESOURCE_ICONS[obj.type]||''}`);
         updateUI();
     }
 
@@ -3201,8 +3349,7 @@ showHarvestPopup(`+1 ${type.resName} (${type.resEmoji})`);
                 clearInterval(interval); buildingData.processing=false; element.classList.remove('processing'); progressBar.classList.remove('active');
                 craftedItems[craftType]=(craftedItems[craftType]||0)+1;
 totalCrafted[craftType] = (totalCrafted[craftType] || 0) + 1;
-                const product=CRAFTED_PRODUCTS[craftType];
-                showHarvestPopup(`✨ Получен ${product.label} ${product.emoji}!`);
+                showHarvestPopup(`✨ Получен ${CRAFTED_PRODUCTS[craftType].label} ${CRAFT_ICONS[craftType]||''}!`);
                 element.style.filter='drop-shadow(0 0 30px rgba(255,215,0,0.8)) brightness(1.3)';
                 setTimeout(()=>{ element.style.filter=''; },500);
                 if (fill) { fill.style.width='0%'; fill.style.transition='none'; }
@@ -3256,15 +3403,7 @@ totalCrafted[craftType] = (totalCrafted[craftType] || 0) + 1;
         }
         if (total===0) { showHarvestPopup('❌ Нет ресурсов'); return; }
         gems+=total; updateUI(); 
-
-
-
-
 showHarvestPopup(`💰 Продано: ${items.join(', ')}.`);
-
-
-
-
 checkLevelCompletion();
     }
 
@@ -3295,11 +3434,12 @@ checkLevelCompletion();
             const item=document.createElement('div');
             item.className='build-item'+((available&&has)?'':' disabled');
             if (active) item.style.borderColor='#f5d742';
+            const buildIco = BUILDING_SVGS[key] ? `<span style="display:inline-block;width:28px;height:28px">${BUILDING_SVGS[key]}</span>` : recipe.emoji;
             item.innerHTML=`
                 <div class="build-top">
-                    <span class="build-emoji">${recipe.emoji}</span>
+                    <span class="build-emoji">${buildIco}</span>
                     <span class="build-name">${recipe.label}</span>
-                    <span class="build-cost">💎${recipe.cost}</span>
+                    <span class="build-cost">${ICON_GEM} ${recipe.cost}</span>
                 </div>
                 <div class="build-desc">${recipe.desc}</div>
                 ${!available?`<div class="build-status">🔒 недоступно</div>`:
@@ -3446,7 +3586,6 @@ function togglePause() {
     else pauseGame();
 }
 
-// ---------- Кастомные confirm / alert ----------
 let _confirmResolve = null;
 function civConfirm(text, title = 'Подтверждение') {
     return new Promise(resolve => {
@@ -3484,44 +3623,67 @@ document.getElementById('btnExitX').addEventListener('click', gameExit);
 document.getElementById('reset-btn')
     .addEventListener('click', resetCurrentLevel);
 
-
    document.getElementById('game-wrapper').classList.add('hidden');
     renderLevelMenu();
-        renderLevelMenu();
-        document.getElementById('btnNewGame').addEventListener('click', () => {
-            mainMenu.classList.add('hidden');
-            heroMenu.classList.add('show');
-            renderHeroMenu();
-        });
-        document.getElementById('btnLoadGame').addEventListener('click', () => {
-            const input = document.createElement('input');
-            input.type = 'file'; input.accept = '.json';
-            input.onchange = (e) => { const f = e.target.files[0]; if (f) loadGameFile(f); };
-            input.click();
-        });
-        document.getElementById('btnAbout').addEventListener('click', () => aboutBox.classList.add('show'));
-        document.getElementById('closeAbout').addEventListener('click', () => aboutBox.classList.remove('show'));
-        field.addEventListener('click', handleFieldClick);
-        field.addEventListener('mousemove', handleFieldMove);
-        field.addEventListener('mouseleave', ()=>{ if(previewElement) previewElement.style.display='none'; });
-        document.querySelectorAll('.shop-btn').forEach(b=>b.addEventListener('click', ()=>{ const t=b.dataset.creature; if(t) buyCreature(t); }));
-        sellAllBtn.addEventListener('click', sellAllResources);
-        nextLevelBtn.addEventListener('click', () => {
-            if (isTimeUp) {
-                isTimeUp = false;
-                completeTitle.textContent = '🎉 Уровень пройден!';
-                levelComplete.classList.remove('show');
-                startLevel(currentLevel);
-                return;
-            }
-            if (currentLevel+1<LEVELS.length) startLevel(currentLevel+1);
-            else { levelComplete.classList.remove('show'); levelMenu.classList.remove('hidden'); showHarvestPopup('🏆 Вы прошли все уровни!'); }
-        });
-        menuBtn.addEventListener('click', () => { levelComplete.classList.remove('show'); levelMenu.classList.remove('hidden'); });
-        field.addEventListener('mouseover', (e)=>{ const c=e.target.closest('.creature'); if(c) c.style.filter='drop-shadow(0 0 20px #f5d742)'; });
-        field.addEventListener('mouseout', (e)=>{ const c=e.target.closest('.creature'); if(c) c.style.filter='drop-shadow(0 8px 12px rgba(0,0,0,0.7))'; });
-        console.log('🌿 Сказочная ферма — славянские сказы. Об авторе: Панченко М. А.');
-// ---- Горячие клавиши ----
+
+    // ---- Иконки в шапке ----
+    document.getElementById('gemIconSlot').innerHTML   = ICON_GEM;
+    document.getElementById('grassIconSlot').innerHTML = ICON_GRASS;
+    document.getElementById('waterIconSlot').innerHTML = ICON_WATER;
+    document.getElementById('pawIconSlot').innerHTML   = ICON_PAW;
+
+ ['firebird','zmey','volkolak','nochnitsa','basilisk','unicorn'].forEach(k => {
+    const el = document.getElementById('ico-' + k);
+    if (el) el.innerHTML = RESOURCE_ICONS[k];
+});
+
+    // ---- Магазин ----
+    const shopEl = document.getElementById('shop');
+    const shopDefs = [
+        ['firebird','Жар-птица',15],['zmey','Огненный змей',10],['volkolak','Волколак',12],
+        ['nochnitsa','Ночница',18],['basilisk','Василиск',20],['unicorn','Единорог',35]
+    ];
+   shopEl.innerHTML = shopDefs.map(([id,name,cost]) =>
+    `<button class="shop-btn" data-creature="${id}"><span class="icon-slot">${CREATURE_ICONS[id]}</span> ${name} <span class="cost">${ICON_GEM} ${cost}</span></button>`
+).join('');
+    shopEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.shop-btn');
+        if (btn && !btn.disabled) buyCreature(btn.dataset.creature);
+    });
+
+    document.getElementById('btnNewGame').addEventListener('click', () => {
+        mainMenu.classList.add('hidden');
+        heroMenu.classList.add('show');
+        renderHeroMenu();
+    });
+    document.getElementById('btnLoadGame').addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'file'; input.accept = '.json';
+        input.onchange = (e) => { const f = e.target.files[0]; if (f) loadGameFile(f); };
+        input.click();
+    });
+    document.getElementById('btnAbout').addEventListener('click', () => aboutBox.classList.add('show'));
+    document.getElementById('closeAbout').addEventListener('click', () => aboutBox.classList.remove('show'));
+    field.addEventListener('click', handleFieldClick);
+    field.addEventListener('mousemove', handleFieldMove);
+    field.addEventListener('mouseleave', ()=>{ if(previewElement) previewElement.style.display='none'; });
+    sellAllBtn.addEventListener('click', sellAllResources);
+    nextLevelBtn.addEventListener('click', () => {
+        if (isTimeUp) {
+            isTimeUp = false;
+            completeTitle.textContent = '🎉 Уровень пройден!';
+            levelComplete.classList.remove('show');
+            startLevel(currentLevel);
+            return;
+        }
+        if (currentLevel+1<LEVELS.length) startLevel(currentLevel+1);
+        else { levelComplete.classList.remove('show'); levelMenu.classList.remove('hidden'); showHarvestPopup('🏆 Вы прошли все уровни!'); }
+    });
+    menuBtn.addEventListener('click', () => { levelComplete.classList.remove('show'); levelMenu.classList.remove('hidden'); });
+    field.addEventListener('mouseover', (e)=>{ const c=e.target.closest('.creature'); if(c) c.style.filter='drop-shadow(0 0 20px #f5d742)'; });
+    field.addEventListener('mouseout', (e)=>{ const c=e.target.closest('.creature'); if(c) c.style.filter='drop-shadow(0 8px 12px rgba(0,0,0,0.7))'; });
+    console.log('🌿 Сказочная ферма — славянские сказы. Об авторе: Панченко М. А.');
+
 document.addEventListener('keydown', (e) => {
     const inGame = !document.getElementById('game-wrapper').classList.contains('hidden')
                 && levelMenu.classList.contains('hidden');
@@ -3538,7 +3700,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ---- Кнопки окна паузы ----
 document.getElementById('pauseClose').addEventListener('click', resumeGame);
 
 document.getElementById('pauseNewGame').addEventListener('click', async () => {

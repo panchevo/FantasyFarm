@@ -685,85 +685,56 @@ body {
     position:fixed; inset:0; z-index:1000;
     background: radial-gradient(ellipse at 50% 20%, #4a3a1e 0%, #2a1d0c 55%, #120a04 100%);
     display:flex; flex-direction:column; align-items:center;
-    justify-content:flex-start;            /* было center — ломало скролл */
-    padding:24px 24px 40px;                /* запас снизу */
+    justify-content:flex-start;
+    padding:24px 24px 40px;
     transition:opacity .5s, transform .5s;
     overflow-y:auto;
     overflow-x:hidden;
-    scrollbar-width:thin;                  /* Firefox */
-    scrollbar-color: var(--civ-gold) rgba(0,0,0,.45);  /* Firefox: ползунок / дорожка */
+    scrollbar-width:thin;
+    scrollbar-color: var(--civ-gold) rgba(0,0,0,.45);
     scroll-behavior:smooth;
 }
 
-/* ---------- СКАЗОЧНАЯ ПОЛОСА ПРОКРУТКИ ---------- */
-#level-menu::-webkit-scrollbar {
-    width: 14px;
-}
+#level-menu::-webkit-scrollbar { width: 14px; }
 #level-menu::-webkit-scrollbar-track {
-    background:
-        linear-gradient(180deg, rgba(20,14,6,.85) 0%, rgba(46,34,16,.85) 100%);
+    background: linear-gradient(180deg, rgba(20,14,6,.85) 0%, rgba(46,34,16,.85) 100%);
     border-left: 1px solid var(--civ-bronze-dark);
     border-right: 1px solid var(--civ-bronze-dark);
     box-shadow: inset 0 0 8px rgba(0,0,0,.7);
 }
 #level-menu::-webkit-scrollbar-thumb {
-    background:
-        linear-gradient(180deg,
-            #f5d742 0%,
-            #d4a94a 35%,
-            #8a6a3a 70%,
-            #5a4322 100%);
+    background: linear-gradient(180deg, #f5d742 0%, #d4a94a 35%, #8a6a3a 70%, #5a4322 100%);
     border-radius: 8px;
     border: 2px solid #2a1d0c;
-    box-shadow:
-        inset 0 1px 0 rgba(255,240,200,.55),
-        inset 0 -1px 0 rgba(0,0,0,.5),
-        0 0 10px rgba(245,215,66,.45);
+    box-shadow: inset 0 1px 0 rgba(255,240,200,.55), inset 0 -1px 0 rgba(0,0,0,.5), 0 0 10px rgba(245,215,66,.45);
     background-clip: padding-box;
 }
 #level-menu::-webkit-scrollbar-thumb:hover {
-    background:
-        linear-gradient(180deg,
-            #fff2a0 0%,
-            #f0c860 35%,
-            #a8823a 70%,
-            #6a5230 100%);
-    box-shadow:
-        inset 0 1px 0 rgba(255,240,200,.75),
-        inset 0 -1px 0 rgba(0,0,0,.5),
-        0 0 18px rgba(245,215,66,.8);
+    background: linear-gradient(180deg, #fff2a0 0%, #f0c860 35%, #a8823a 70%, #6a5230 100%);
+    box-shadow: inset 0 1px 0 rgba(255,240,200,.75), inset 0 -1px 0 rgba(0,0,0,.5), 0 0 18px rgba(245,215,66,.8);
 }
 #level-menu::-webkit-scrollbar-thumb:active {
-    background:
-        linear-gradient(180deg,
-            #d4a94a 0%,
-            #a8823a 50%,
-            #5a4322 100%);
+    background: linear-gradient(180deg, #d4a94a 0%, #a8823a 50%, #5a4322 100%);
     box-shadow: inset 0 2px 6px rgba(0,0,0,.7);
 }
-#level-menu::-webkit-scrollbar-corner {
-    background: #1a1008;
-}
+#level-menu::-webkit-scrollbar-corner { background: #1a1008; }
 
 
-#game-wrapper.hidden {
-    display: none;
-}
+#game-wrapper.hidden { display: none; }
 
 .level-btn .level-name {
-    font-size: .72rem;          /* было .6rem */
-    color: #3a2a14;             /* тёмный ink вместо #4a3a1e */
+    font-size: .72rem;
+    color: #3a2a14;
     font-style: italic;
     margin-top: 3px;
     line-height: 1.2;
     text-shadow: 0 1px 0 rgba(255,240,200,.5);
 }
 
-
 .level-btn.locked .level-name {
-    color: #e8d9b5;             /* светлый пергамент на тёмном фоне */
+    color: #e8d9b5;
     text-shadow: 0 1px 2px rgba(0,0,0,.8);
-    opacity: 1;                 /* чтобы не наследовал прозрачность */
+    opacity: 1;
 }
 
 .level-btn.locked .level-num {
@@ -772,7 +743,7 @@ body {
 }
 
 .level-btn.locked {
-    opacity: .8;                /* было .55 */
+    opacity: .8;
     background: linear-gradient(180deg,#5a4a2a 0%,#3a2a14 100%);
     color: #e8d9b5;
     box-shadow: inset 0 2px 6px rgba(0,0,0,.6), 0 2px 4px rgba(0,0,0,.5);
@@ -788,8 +759,7 @@ body {
 
 #hero-menu {
     position:fixed; inset:0; z-index:1900;
-    background:
-        radial-gradient(ellipse at 50% 15%, #5a4626 0%, #2a1d0c 55%, #0d0804 100%);
+    background: radial-gradient(ellipse at 50% 15%, #5a4626 0%, #2a1d0c 55%, #0d0804 100%);
     display:none; flex-direction:column; align-items:center; justify-content:center;
     padding:28px 20px; overflow-y:auto;
 }
@@ -827,26 +797,18 @@ body {
     position:relative; z-index:1;
 }
 
-/* ---------- КАРТОЧКА-МЕДАЛЬОН ---------- */
 .hero-card {
     position:relative;
-    background:
-        radial-gradient(ellipse at 50% 0%, #f0e2c0 0%, #d8c496 45%, #b89f6e 100%);
+    background: radial-gradient(ellipse at 50% 0%, #f0e2c0 0%, #d8c496 45%, #b89f6e 100%);
     border:3px solid var(--civ-bronze-dark);
     border-radius:20px;
     padding:24px 16px 18px;
     cursor:pointer;
     text-align:center;
-    transition:transform .25s cubic-bezier(.34,1.4,.64,1),
-               box-shadow .25s, border-color .25s, background .25s;
-    box-shadow:
-        0 4px 0 var(--civ-bronze-deep),
-        0 10px 22px rgba(0,0,0,.65),
-        inset 0 2px 0 rgba(255,245,215,.7),
-        inset 0 -3px 8px rgba(90,60,20,.35);
+    transition:transform .25s cubic-bezier(.34,1.4,.64,1), box-shadow .25s, border-color .25s, background .25s;
+    box-shadow: 0 4px 0 var(--civ-bronze-deep), 0 10px 22px rgba(0,0,0,.65), inset 0 2px 0 rgba(255,245,215,.7), inset 0 -3px 8px rgba(90,60,20,.35);
     overflow:hidden;
 }
-/* декоративные уголки */
 .hero-card::before,
 .hero-card::after {
     content:''; position:absolute; width:16px; height:16px;
@@ -856,14 +818,9 @@ body {
 .hero-card::before { top:7px; left:7px; border-right:none; border-bottom:none; border-top-left-radius:9px; }
 .hero-card::after  { bottom:7px; right:7px; border-left:none; border-top:none;  border-bottom-right-radius:9px; }
 
-/* блик-пробег */
 .hero-card .shine {
     position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(115deg,
-        transparent 30%,
-        rgba(255,255,255,.35) 45%,
-        rgba(255,255,255,.05) 55%,
-        transparent 70%);
+    background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.35) 45%, rgba(255,255,255,.05) 55%, transparent 70%);
     transform:translateX(-120%);
     transition:transform .6s ease;
 }
@@ -872,34 +829,22 @@ body {
 .hero-card:hover {
     transform:translateY(-7px) scale(1.015);
     border-color: var(--civ-gold);
-    background:
-        radial-gradient(ellipse at 50% 0%, #fff2ce 0%, #e8d6a8 45%, #c9b078 100%);
-    box-shadow:
-        0 6px 0 var(--civ-bronze-deep),
-        0 18px 34px rgba(0,0,0,.7),
-        0 0 34px rgba(245,215,66,.45),
-        inset 0 2px 0 rgba(255,250,230,.9),
-        inset 0 -3px 8px rgba(90,60,20,.35);
+    background: radial-gradient(ellipse at 50% 0%, #fff2ce 0%, #e8d6a8 45%, #c9b078 100%);
+    box-shadow: 0 6px 0 var(--civ-bronze-deep), 0 18px 34px rgba(0,0,0,.7), 0 0 34px rgba(245,215,66,.45), inset 0 2px 0 rgba(255,250,230,.9), inset 0 -3px 8px rgba(90,60,20,.35);
 }
 .hero-card:hover::before,
 .hero-card:hover::after { opacity:1; }
 .hero-card:active { transform:translateY(-2px) scale(1.005); }
 
-/* портрет в оправе */
 .hero-card .hero-portrait {
     position:relative;
     width:132px; height:132px;
     margin:0 auto 16px;
     border-radius:50%;
     display:flex; align-items:center; justify-content:center;
-    background:
-        radial-gradient(circle at 50% 35%, #fff6d8 0%, #e0c88a 55%, #a8863a 100%);
+    background: radial-gradient(circle at 50% 35%, #fff6d8 0%, #e0c88a 55%, #a8863a 100%);
     border:3px solid var(--civ-gold);
-    box-shadow:
-        0 0 0 3px var(--civ-bronze-dark),
-        0 0 0 5px rgba(212,169,74,.35),
-        0 6px 16px rgba(0,0,0,.6),
-        inset 0 0 22px rgba(120,80,20,.35);
+    box-shadow: 0 0 0 3px var(--civ-bronze-dark), 0 0 0 5px rgba(212,169,74,.35), 0 6px 16px rgba(0,0,0,.6), inset 0 0 22px rgba(120,80,20,.35);
     overflow:hidden;
     transition:transform .25s, box-shadow .25s;
 }
@@ -911,14 +856,8 @@ body {
 }
 .hero-card:hover .hero-portrait {
     transform:translateY(-3px) scale(1.05);
-    box-shadow:
-        0 0 0 3px var(--civ-bronze-dark),
-        0 0 0 5px rgba(245,215,66,.6),
-        0 10px 24px rgba(0,0,0,.7),
-        0 0 30px rgba(245,215,66,.5),
-        inset 0 0 26px rgba(160,110,30,.45);
+    box-shadow: 0 0 0 3px var(--civ-bronze-dark), 0 0 0 5px rgba(245,215,66,.6), 0 10px 24px rgba(0,0,0,.7), 0 0 30px rgba(245,215,66,.5), inset 0 0 26px rgba(160,110,30,.45);
 }
-/* лёгкое парение */
 @keyframes heroFloat {
     0%,100% { transform:translateY(0); }
     50%     { transform:translateY(-4px); }
@@ -926,7 +865,6 @@ body {
 .hero-card .hero-portrait { animation:heroFloat 4s ease-in-out infinite; }
 .hero-card:hover .hero-portrait { animation-play-state:paused; }
 
-/* лента с именем */
 .hero-card .hero-name {
     position:relative;
     display:inline-block;
@@ -938,10 +876,7 @@ body {
     border-radius:8px;
     letter-spacing:.8px;
     border:1px solid var(--civ-gold);
-    box-shadow:
-        0 2px 0 #1a1008,
-        0 4px 10px rgba(0,0,0,.55),
-        inset 0 1px 0 rgba(255,220,150,.35);
+    box-shadow: 0 2px 0 #1a1008, 0 4px 10px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,220,150,.35);
     text-shadow:0 1px 2px rgba(0,0,0,.9);
     margin-bottom:12px;
 }
@@ -951,16 +886,9 @@ body {
     position:absolute; top:50%; transform:translateY(-50%);
     border:7px solid transparent;
 }
-.hero-card .hero-name::before {
-    left:-13px;
-    border-right-color:#3a2810;
-}
-.hero-card .hero-name::after {
-    right:-13px;
-    border-left-color:#3a2810;
-}
+.hero-card .hero-name::before { left:-13px; border-right-color:#3a2810; }
+.hero-card .hero-name::after { right:-13px; border-left-color:#3a2810; }
 
-/* плашка бонуса */
 .hero-card .hero-bonus {
     display:block;
     font-size:.78rem;
@@ -980,22 +908,13 @@ body {
     font-style:normal;
 }
 
-/* выбранный герой */
 .hero-card.selected {
     border-color:#a8e070;
-    box-shadow:
-        0 6px 0 #2a4a1a,
-        0 18px 34px rgba(0,0,0,.7),
-        0 0 40px rgba(168,224,112,.65),
-        inset 0 2px 0 rgba(255,250,230,.9);
+    box-shadow: 0 6px 0 #2a4a1a, 0 18px 34px rgba(0,0,0,.7), 0 0 40px rgba(168,224,112,.65), inset 0 2px 0 rgba(255,250,230,.9);
 }
 .hero-card.selected .hero-portrait {
     border-color:#c8f0a0;
-    box-shadow:
-        0 0 0 3px #2a4a1a,
-        0 0 0 5px rgba(168,224,112,.55),
-        0 10px 24px rgba(0,0,0,.7),
-        0 0 34px rgba(168,224,112,.6);
+    box-shadow: 0 0 0 3px #2a4a1a, 0 0 0 5px rgba(168,224,112,.55), 0 10px 24px rgba(0,0,0,.7), 0 0 34px rgba(168,224,112,.6);
 }
 
 @media (max-width:768px) {
@@ -1024,7 +943,6 @@ body {
 .grass.dying {
     opacity: .35;
     filter: grayscale(1) brightness(.7);
- 
     transition: all 1.5s ease;
 }
 
@@ -1041,25 +959,20 @@ body {
     animation: grassSway 3.5s ease-in-out infinite;
 }
 
-/* Покачивание на ветру — каждая травинка качается по-своему */
 @keyframes grassSway {
     0%,100% { transform: rotate(-2.5deg) translateY(0); }
     50%     { transform: rotate(1.5deg)  translateY(-1px); }
 }
 
-/* Увядание: желтеет, вянет, наклоняется */
 .grass.dying {
     opacity: .5;
     filter: grayscale(.9) brightness(.7) drop-shadow(0 2px 3px rgba(0,0,0,.4));
-;
     animation: none;
     transition: all 1.8s ease;
 }
 
-/* Момент, когда трава вот-вот исчезнет */
 .grass.fading {
     opacity: 0;
-
     transition: all .8s ease;
 }
 
@@ -1084,8 +997,7 @@ body {
     text-align: center;
     max-width: 420px;
     width: 90%;
-    box-shadow: 0 0 70px rgba(212,169,74,.5), 0 20px 50px rgba(0,0,0,.9),
-                inset 0 2px 0 rgba(255,220,150,.3);
+    box-shadow: 0 0 70px rgba(212,169,74,.5), 0 20px 50px rgba(0,0,0,.9), inset 0 2px 0 rgba(255,220,150,.3);
     animation: civ-complete-in .4s cubic-bezier(.34,1.56,.64,1);
 }
 .pause-inner h3 {
@@ -1157,25 +1069,6 @@ body {
     background: linear-gradient(180deg,rgba(138,106,58,.8) 0%,rgba(74,58,30,.9) 100%);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ============ ОБЩИЙ СТИЛЬ МОДАЛЬНЫХ ОКОН ============ */
 .civ-modal {
     position: fixed;
@@ -1202,24 +1095,18 @@ body {
 
 .civ-modal-inner {
     position: relative;
-    background:
-        radial-gradient(ellipse at 50% 0%, #6a5230 0%, #3a2a14 55%, #1a1008 100%);
+    background: radial-gradient(ellipse at 50% 0%, #6a5230 0%, #3a2a14 55%, #1a1008 100%);
     padding: 34px 44px 28px;
     border-radius: 22px;
     border: 3px solid var(--civ-gold);
     text-align: center;
     max-width: 480px;
     width: 100%;
-    box-shadow:
-        0 0 70px rgba(212,169,74,.45),
-        0 20px 50px rgba(0,0,0,.9),
-        inset 0 2px 0 rgba(255,220,150,.35),
-        inset 0 -2px 0 rgba(0,0,0,.4);
+    box-shadow: 0 0 70px rgba(212,169,74,.45), 0 20px 50px rgba(0,0,0,.9), inset 0 2px 0 rgba(255,220,150,.35), inset 0 -2px 0 rgba(0,0,0,.4);
     animation: civModalIn .42s cubic-bezier(.34,1.56,.64,1);
     overflow: hidden;
 }
 
-/* Декоративные уголки */
 .civ-modal-inner::before,
 .civ-modal-inner::after {
     content: '';
@@ -1242,7 +1129,6 @@ body {
     border-bottom-right-radius: 12px;
 }
 
-/* Внутренняя тонкая рамка */
 .civ-modal-inner .civ-modal-frame {
     position: absolute;
     inset: 6px;
@@ -1251,7 +1137,6 @@ body {
     pointer-events: none;
 }
 
-/* Заголовок с ромбами */
 .civ-modal-title {
     font-family: var(--civ-font-display);
     color: var(--civ-gold-bright);
@@ -1259,10 +1144,7 @@ body {
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 6px;
-    text-shadow:
-        0 0 28px rgba(212,169,74,.6),
-        0 2px 0 #5a4322,
-        0 4px 8px rgba(0,0,0,.8);
+    text-shadow: 0 0 28px rgba(212,169,74,.6), 0 2px 0 #5a4322, 0 4px 8px rgba(0,0,0,.8);
     position: relative;
 }
 .civ-modal-title::after {
@@ -1276,7 +1158,6 @@ body {
     opacity: .85;
 }
 
-/* Подзаголовок */
 .civ-modal-sub {
     color: var(--civ-parchment-dark);
     font-style: italic;
@@ -1286,7 +1167,6 @@ body {
     text-shadow: 0 1px 3px rgba(0,0,0,.7);
 }
 
-/* Тело окна */
 .civ-modal-body {
     color: var(--civ-parchment);
     font-size: 1rem;
@@ -1296,14 +1176,12 @@ body {
 }
 .civ-modal-body strong { color: var(--civ-gold-bright); }
 
-/* Строка кнопок */
 .civ-modal-buttons {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* Единая кнопка модалок */
 .civ-btn {
     position: relative;
     background: var(--civ-btn-bg);
@@ -1335,7 +1213,6 @@ body {
 }
 .civ-btn:active { transform: translateY(0); box-shadow: var(--civ-shadow-inset); }
 
-/* Варианты кнопок */
 .civ-btn-primary {
     background: linear-gradient(180deg,#8aaa4a 0%,#5a8a2a 50%,#3a6a1a 100%);
     color: #fff;
@@ -1375,7 +1252,6 @@ body {
     background: linear-gradient(180deg,rgba(138,106,58,.8) 0%,rgba(74,58,30,.9) 100%);
 }
 
-/* ============ ВАРИАНТЫ POPUP-УВЕДОМЛЕНИЙ ============ */
 #harvest-popup.popup-success {
     background: linear-gradient(180deg,rgba(200,240,180,.96) 0%,rgba(140,200,110,.96) 100%);
     border-color: #a8e070;
@@ -1395,9 +1271,6 @@ body {
     color: #0a1a4a;
 }
 
-/* ============ УЛУЧШЕНИЕ СУЩЕСТВУЮЩИХ ОКОН ============ */
-
-/* Окно «Об авторе» */
 #about-box .about-inner {
     position: relative;
     background: radial-gradient(ellipse at 50% 0%, #6a5230 0%, #3a2a14 50%, #1a1008 100%);
@@ -1406,8 +1279,7 @@ body {
     border: 3px solid var(--civ-gold);
     max-width: 480px;
     text-align: center;
-    box-shadow: 0 0 70px rgba(212,169,74,.5), 0 20px 50px rgba(0,0,0,.9),
-                inset 0 2px 0 rgba(255,220,150,.35);
+    box-shadow: 0 0 70px rgba(212,169,74,.5), 0 20px 50px rgba(0,0,0,.9), inset 0 2px 0 rgba(255,220,150,.35);
     animation: civModalIn .45s cubic-bezier(.34,1.56,.64,1);
 }
 #about-box .about-inner::before,
@@ -1454,7 +1326,6 @@ body {
     text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
-/* Окно завершения уровня */
 #level-complete .complete-box {
     position: relative;
 }
@@ -1467,7 +1338,6 @@ body {
     opacity: .95; border-radius: 10px;
 }
 
-/* Главное меню — рамка вокруг контента */
 #main-menu::after {
     content: '';
     position: absolute;
@@ -1482,7 +1352,6 @@ body {
     z-index: 2;
 }
 
-/* Меню уровней — рамка */
 #level-menu::after {
     content: '';
     position: absolute;
@@ -1494,31 +1363,11 @@ body {
 }
 #level-menu > * { position: relative; z-index: 1; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #level-menu > * { position: relative; z-index: 1; }
 
 #level-menu::after {
     content: '';
-    position: fixed;        /* ← ключевое: fixed, а не absolute */
+    position: fixed;
     inset: 16px;
     border: 2px solid rgba(212,169,74,.22);
     border-radius: 20px;
@@ -1667,8 +1516,8 @@ body {
 (function() {
 
 // Время жизни травы (в миллисекундах)
-const GRASS_WITHER_TIME = 5000;   // через 20 сек начинает увядать
-const GRASS_REMOVE_TIME = 5500;    // ещё через 8 сек исчезает полностью
+const GRASS_WITHER_TIME = 8000;   // через 8 сек начинает увядать
+const GRASS_REMOVE_TIME = 7000;   // ещё через 7 сек исчезает полностью
 
 const bgMusic = document.getElementById('bgMusic');
 let musicStarted = false;
@@ -1676,8 +1525,8 @@ let musicStarted = false;
 
 function startMusic() {
     if (!bgMusic) return;
-    if (!bgMusic.paused) return;                 // уже играет — не трогаем
-    if (musicStarted) {                          // была на паузе — продолжаем
+    if (!bgMusic.paused) return;
+    if (musicStarted) {
         bgMusic.play().catch(()=>{});
         return;
     }
@@ -1688,26 +1537,15 @@ function startMusic() {
 
 function pauseMusic() {
     if (!bgMusic) return;
-    bgMusic.pause();                             // currentTime НЕ сбрасываем
+    bgMusic.pause();
 }
 
 
-// Автозапуск музыки после первого клика пользователя (браузеры блокируют автоплей)
 function startMusicOnce() {
     startMusic();
     document.removeEventListener('click', startMusicOnce);
     document.removeEventListener('keydown', startMusicOnce);
 }
-
-
-
-
-
-
-
-
-
-
 
 document.addEventListener('click', startMusicOnce);
 document.addEventListener('keydown', startMusicOnce);
@@ -1732,73 +1570,193 @@ document.addEventListener('keydown', startMusicOnce);
 
 
 
-    const LEVELS = [
-        { id:1, name:"Перо Жар-птицы", goals:[{type:'resource',id:'firebird',count:5}], startGems:0, startWater:10, availableCreatures:['firebird'], availableBuildings:[], starThresholds:[45,60,80] },
-        { id:2, name:"Дело Василисы", goals:[{type:'creature',id:'firebird',count:4}], startGems:0, startWater:15, availableCreatures:['firebird','zmey'], availableBuildings:['nest'],  startCreatures:["zmey"], starThresholds:[90,70,50] },
-        { id:3, name:"Огневушка-поскакушка", goals:[{type:'resource',id:'zmey',count:5},{type:'creature',id:'zmey',count:3}], startGems:20, startWater:12, availableCreatures:['zmey','firebird'],  startCreatures:[], availableBuildings:[], starThresholds:[75,55,35] },
-        { id:4, name:"Во Кузнице", goals:[{type:'crafted',id:'nest',count:4},{type:'crafted',id:'forge',count:2},{type:'score',count:100}], startGems:30, startWater:15, availableCreatures:['firebird','zmey'], availableBuildings:['nest','forge'], starThresholds:[120,90,60] },
-        { id:5, name:"Серый Волк", startCreatures:[], goals:[{type:'resource',id:'volkolak',count:10},{type:'creature',id:'volkolak',count:5}], startGems:30, startWater:15, availableCreatures:['volkolak'], availableBuildings:[], starThresholds:[40,35,30] },
-        { id:6, name:"Кузнечный Горн", goals:[{type:'crafted',id:'forge',count:8},{type:'score',count:200}], startGems:35, startWater:18, availableCreatures:['zmey','firebird','volkolak'],  startCreatures:['zmey', 'zmey'], availableBuildings:['forge'], starThresholds:[130,100,70] },
-        { id:7, name:"Избушка На Курьих Ножках", goals:[{type:'resource',id:'nochnitsa',count:6},{type:'creature',id:'nochnitsa',count:3}], startGems:35, startWater:15, availableCreatures:['nochnitsa','firebird','zmey'], startCreatures:[], availableBuildings:[], starThresholds:[90,65,40] },
-        { id:8, name:"Последнее Зелье", goals:[{type:'crafted',id:'lunar',count:5},{type:'building',id:'lunar',count:7}], startGems:40, startWater:20, availableCreatures:['nochnitsa','firebird','zmey'], startCreatures:[], availableBuildings:['lunar'], starThresholds:[150,110,80] },
-        { id:9, name:"Каменный Век", goals:[{type:'resource',id:'basilisk',count:15},{type:'score',count:300}], startGems:40, startWater:20, availableCreatures:['basilisk','volkolak','nochnitsa'], startCreatures:[], availableBuildings:[], starThresholds:[140,100,70] },
-        { id:10, name:"Пещера Тьмы", goals:[{type:'crafted',id:'gorgon',count:10},{type:'score',count:500}], startGems:50, startWater:25, availableCreatures:['basilisk','nochnitsa','volkolak'], startCreatures:['volkolak', 'basilisk'], availableBuildings:['gorgon'], starThresholds:[180,140,100] },
-        { id:11, name:"Философский Камень", goals:[{type:'resource',id:'unicorn',count:8}], startGems:50, startWater:20, availableCreatures:['unicorn','basilisk','firebird'], availableBuildings:[], starThresholds:[120,90,60] },
-        { id:12, name:"Эликсир Мудрости", goals:[{type:'crafted',id:'philosopher',count:12},{type:'creature',id:'unicorn',count:3}], startGems:60, startWater:25, availableCreatures:['unicorn','basilisk','nochnitsa'], startCreatures:['unicorn'], availableBuildings:['philosopher'], starThresholds:[200,150,100] },
-        { id:13, name:"Сбор Урожая", goals:[{type:'resource',id:'firebird',count:20},{type:'resource',id:'zmey',count:15},{type:'resource',id:'volkolak',count:10}], startGems:45, startWater:25, availableCreatures:['firebird','zmey','volkolak'], availableBuildings:[], starThresholds:[160,120,80] },
-        { id:14, name:"Мастерская Оборотня", goals:[{type:'crafted',id:'nest',count:10},{type:'crafted',id:'forge',count:10},{type:'score',count:500}], startGems:55, startWater:25, availableCreatures:['firebird','zmey','volkolak'], startCreatures:['volkolak'], availableBuildings:['nest','forge'], starThresholds:[200,150,100] },
-        { id:15, name:"Поле Чудес", goals:[{type:'resource',id:'nochnitsa',count:20},{type:'resource',id:'basilisk',count:10},{type:'creature',id:'nochnitsa',count:8}], startCreatures:[], startGems:55, startWater:25, availableCreatures:['nochnitsa','basilisk','volkolak'], availableBuildings:[], starThresholds:[180,140,100] },
-        { id:16, name:"Мистическая Поляна", goals:[{type:'crafted',id:'lunar',count:15},{type:'crafted',id:'philosopher',count:12},{type:'score',count:700}], startCreatures:['unicorn'], startGems:65, startWater:30, availableCreatures:['nochnitsa','unicorn','basilisk'], availableBuildings:['lunar','philosopher'], starThresholds:[250,190,130] },
-        { id:17, name:"Темная Лощина", goals:[{type:'crafted',id:'gorgon',count:30},{type:'score',count:1000}], startGems:70, startWater:30, availableCreatures:['basilisk','unicorn','nochnitsa'], availableBuildings:['gorgon'], starThresholds:[300,220,150] },
-        { id:18, name:"Камень Мудрости", goals:[{type:'resource',id:'unicorn',count:15},{type:'score',count:800}], startGems:70, startWater:30, availableCreatures:['unicorn','basilisk','volkolak'], availableBuildings:[], starThresholds:[220,170,120] },
-        { id:19, name:"Лунное Знамение", goals:[{type:'crafted',id:'philosopher',count:20},{type:'crafted',id:'lunar',count:15},{type:'creature',id:'unicorn',count:5}], startGems:80, startWater:35, availableCreatures:['unicorn','nochnitsa','basilisk'], availableBuildings:['philosopher','lunar'], starThresholds:[350,260,180], startCreatures:['unicorn'] },
-        { id:20, name:"Тридевятое Царство", goals:[{type:'resource',id:'firebird',count:50},{type:'resource',id:'zmey',count:40},{type:'resource',id:'volkolak',count:30},{type:'resource',id:'nochnitsa',count:20},{type:'resource',id:'basilisk',count:15},{type:'resource',id:'unicorn',count:10},{type:'score',count:5000}], startGems:100, startWater:50, availableCreatures:['firebird','zmey','volkolak','nochnitsa','basilisk','unicorn'], startCreatures:[''], availableBuildings:['nest','forge','wolf','lunar','gorgon','philosopher'], starThresholds:[600,450,300] }
-    ];
+// ============================================================
+//  ★★★ СТАБИЛИЗИРОВАННЫЕ УРОВНИ ★★★
+//  Правило баланса: 1 существо = ~8 ресурсов/мин.
+//  4 существа = ~32 ресурса/мин. За 3 минуты = ~100 ресурсов.
+// ============================================================
+const LEVELS = [
+    { id:1,  name:"Перо Жар-птицы",
+      goals:[{type:'resource',id:'firebird',count:5}],
+      startGems:15, startWater:15, startCreatures:['firebird'],
+      availableCreatures:['firebird'], availableBuildings:[],
+      starThresholds:[80,120,180] },
 
-    const TIME_LIMITS = [60,90,75,120,100,130,90,150,140,180,120,200,160,200,180,250,300,220,350,600];
-    LEVELS.forEach((lv, i) => { lv.timeLimit = TIME_LIMITS[i]; });
+    { id:2,  name:"Дело Василисы",
+      goals:[{type:'creature',id:'firebird',count:3}],
+      startGems:20, startWater:15, startCreatures:['firebird'],
+      availableCreatures:['firebird','zmey'], availableBuildings:['nest'],
+      starThresholds:[100,150,220] },
 
-    const HEROES = [
-        { id:'ivan', name:'Иван-царевич', emoji:'🤴', bonus:'−20% стоимость Жар-птиц и Волколаков' },
-        { id:'baba', name:'Баба-яга', emoji:'🧙‍♀️', bonus:'+20% здоровье Ночниц и Василисков' },
-        { id:'vasilisa', name:'Василиса Премудрая', emoji:'👸', bonus:'+20% скорость насыщения Единорогов' },
-        { id:'gorynych', name:'Змей Горыныч', emoji:'🐉', bonus:'+20% к продаже ресурсов Жар-птиц и Огненных змеев' }
-    ];
-    let selectedHero = null;
+    { id:3,  name:"Огневушка-поскакушка",
+      goals:[{type:'resource',id:'zmey',count:3},{type:'creature',id:'zmey',count:2}],
+      startGems:25, startWater:18, startCreatures:['zmey'],
+      availableCreatures:['zmey','firebird'], availableBuildings:[],
+      starThresholds:[120,170,240] },
 
-    const CRAFTED_PRODUCTS = {
-        nest: { emoji:'✨', label:'Магия', svg:`<svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="14" ry="10" fill="#aaccff" opacity="0.6"/><ellipse cx="20" cy="18" rx="10" ry="8" fill="#ccddff"/><path d="M12,16 Q20,8 28,16" stroke="#88aaff" stroke-width="2" fill="none"/><circle cx="14" cy="14" r="2" fill="#ffdd88"/><circle cx="26" cy="14" r="2" fill="#ffdd88"/></svg>` },
-        forge: { emoji:'💎', label:'Алмаз', svg:`<svg viewBox="0 0 40 40"><polygon points="20,4 34,16 20,36 6,16" fill="#88ddff" opacity="0.9"/><polygon points="20,8 30,17 20,32 10,17" fill="#bbeeff"/><polygon points="20,12 26,18 20,28 14,18" fill="#ffffff" opacity="0.5"/><path d="M12,16 L28,16" stroke="#66bbdd" stroke-width="1"/></svg>` },
-        wolf: { emoji:'🧥', label:'Одежда', svg:`<svg viewBox="0 0 40 40"><rect x="8" y="12" width="24" height="20" rx="3" fill="#8a6f4a"/><rect x="12" y="16" width="16" height="12" rx="2" fill="#6b4f3a"/><path d="M8,12 L14,8 L26,8 L32,12" fill="#7a5f4a"/></svg>` },
-        lunar: { emoji:'🧪', label:'Зелье', svg:`<svg viewBox="0 0 40 40"><rect x="14" y="10" width="12" height="20" rx="2" fill="#aa88ff" opacity="0.5"/><rect x="16" y="12" width="8" height="16" rx="1" fill="#ccaaFF"/><circle cx="20" cy="22" r="4" fill="#ddccff" opacity="0.6"/><path d="M18,10 L20,6 L22,10" stroke="#aa88ff" stroke-width="2" fill="none"/></svg>` },
-        gorgon: { emoji:'🗿', label:'Статуя', svg:`<svg viewBox="0 0 40 40"><rect x="10" y="14" width="20" height="20" rx="2" fill="#6a6a5a"/><rect x="14" y="18" width="12" height="12" rx="1" fill="#8a8a7a"/><circle cx="18" cy="22" r="2" fill="#ff8844"/><circle cx="22" cy="22" r="2" fill="#ff8844"/><path d="M18,26 L20,28 L22,26" stroke="#4a4a3a" stroke-width="1.5"/></svg>` },
-        philosopher: { emoji:'⚗️', label:'Эликсир', svg:`<svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="12" ry="14" fill="#88cc88" opacity="0.4"/><ellipse cx="20" cy="18" rx="8" ry="10" fill="#aaddaa"/><circle cx="20" cy="18" r="4" fill="#ffee88"/><path d="M16,10 L20,6 L24,10" stroke="#88cc88" stroke-width="2" fill="none"/></svg>` }
-    };
+    { id:4,  name:"Во Кузнице",
+      goals:[{type:'crafted',id:'nest',count:2},{type:'crafted',id:'forge',count:1},{type:'score',count:60}],
+      startGems:40, startWater:20, startCreatures:['firebird','zmey'],
+      availableCreatures:['firebird','zmey'], availableBuildings:['nest','forge'],
+      starThresholds:[150,220,300] },
 
-    const BUILDING_RESOURCE_MAP = { nest:'firebird', forge:'zmey', wolf:'volkolak', lunar:'nochnitsa', gorgon:'basilisk', philosopher:'unicorn' };
-    const CRAFT_TIME = { nest:3000, forge:2500, wolf:3500, lunar:4000, gorgon:4500, philosopher:6000 };
-    const BUILDING_BONUS = { nest:5, forge:4, wolf:6, lunar:7, gorgon:8, philosopher:15 };
+    { id:5,  name:"Серый Волк",
+      goals:[{type:'resource',id:'volkolak',count:5},{type:'creature',id:'volkolak',count:2}],
+      startGems:30, startWater:20, startCreatures:['volkolak'],
+      availableCreatures:['volkolak'], availableBuildings:[],
+      starThresholds:[120,180,260] },
 
-    const BUILDING_SVGS = {
-        nest: `<svg viewBox="0 0 72 72"><ellipse cx="36" cy="46" rx="28" ry="18" fill="#6b4a2a"/><ellipse cx="36" cy="44" rx="24" ry="14" fill="#8a6a3a"/><path d="M12,46 Q20,30 36,28 Q52,30 60,46" stroke="#4a2a0a" stroke-width="2" fill="none"/><circle cx="28" cy="40" r="4" fill="#aaccee" opacity="0.6"/><circle cx="44" cy="40" r="4" fill="#aaccee" opacity="0.6"/><path d="M30,48 L34,52 L38,48" stroke="#ddaa44" stroke-width="2" fill="none"/><path d="M24,44 Q28,38 36,36 Q44,38 48,44" stroke="#ddaa44" stroke-width="1.5" fill="none"/></svg>`,
-        forge: `<svg viewBox="0 0 72 72"><rect x="10" y="30" width="52" height="30" rx="4" fill="#4a3a2a"/><rect x="14" y="34" width="44" height="22" rx="2" fill="#6a5a3a"/><polygon points="20,34 36,20 52,34" fill="#5a4a2a"/><rect x="24" y="44" width="24" height="12" rx="2" fill="#3a2a1a"/><circle cx="30" cy="50" r="3" fill="#ff8833"/><circle cx="42" cy="50" r="3" fill="#ffaa44"/><path d="M28,20 L36,10 L44,20" stroke="#8a6a3a" stroke-width="3" fill="none"/><circle cx="36" cy="12" r="4" fill="#ffcc44"/><rect x="32" y="40" width="8" height="8" rx="1" fill="#88ddff" opacity="0.8"/></svg>`,
-        wolf: `<svg viewBox="0 0 72 72"><rect x="18" y="28" width="36" height="28" rx="6" fill="#6b4f3a"/><rect x="22" y="32" width="28" height="20" rx="4" fill="#8a6f4a"/><path d="M18,28 L28,18 L44,18 L54,28" fill="#5a3f2a"/><circle cx="34" cy="38" r="3" fill="#ffcc44"/><circle cx="38" cy="38" r="3" fill="#ffcc44"/><circle cx="34" cy="38" r="1.5" fill="#111"/><circle cx="38" cy="38" r="1.5" fill="#111"/><path d="M28,44 L34,48 L40,44" stroke="#111" stroke-width="1.5"/><path d="M30,48 L36,52 L42,48" stroke="#5a3f2a" stroke-width="2"/></svg>`,
-        lunar: `<svg viewBox="0 0 72 72"><rect x="14" y="28" width="44" height="30" rx="4" fill="#3a2a5a"/><rect x="18" y="32" width="36" height="22" rx="3" fill="#5a3a7a"/><circle cx="36" cy="44" r="8" fill="#aa88ff" opacity="0.6"/><circle cx="36" cy="44" r="4" fill="#ccaaFF"/><path d="M22,28 Q30,18 42,20 Q50,22 50,28" stroke="#7a5a9a" stroke-width="2" fill="none"/><path d="M24,52 L30,58 L42,58 L48,52" stroke="#7a5a9a" stroke-width="2" fill="none"/></svg>`,
-        gorgon: `<svg viewBox="0 0 72 72"><rect x="12" y="30" width="48" height="28" rx="4" fill="#4a4a3a"/><rect x="16" y="34" width="40" height="20" rx="3" fill="#6a6a5a"/><path d="M20,34 L28,24 L44,24 L52,34" fill="#5a5a4a"/><polygon points="28,24 30,16 34,18 32,24" fill="#6a6a5a"/><polygon points="44,24 42,16 38,18 40,24" fill="#6a6a5a"/><circle cx="28" cy="42" r="4" fill="#ff8844"/><circle cx="44" cy="42" r="4" fill="#ff8844"/><circle cx="28" cy="42" r="2" fill="#220000"/><circle cx="44" cy="42" r="2" fill="#220000"/><path d="M30,50 L36,54 L42,50" stroke="#4a4a3a" stroke-width="2"/></svg>`,
-        philosopher: `<svg viewBox="0 0 72 72"><rect x="16" y="26" width="40" height="32" rx="6" fill="#3a4a2a"/><rect x="20" y="30" width="32" height="24" rx="4" fill="#5a6a4a"/><circle cx="36" cy="44" r="10" fill="#88cc88" opacity="0.4"/><circle cx="36" cy="44" r="6" fill="#aaddaa"/><path d="M28,34 L34,28 L40,34 L46,28" stroke="#4a6a3a" stroke-width="2" fill="none"/><path d="M30,52 L36,58 L42,52" stroke="#4a6a3a" stroke-width="2" fill="none"/><circle cx="36" cy="44" r="2" fill="#ffee88"/></svg>`
-    };
+    { id:6,  name:"Кузнечный Горн",
+      goals:[{type:'crafted',id:'forge',count:3},{type:'score',count:120}],
+      startGems:45, startWater:22, startCreatures:['zmey','zmey'],
+      availableCreatures:['zmey','firebird','volkolak'], availableBuildings:['forge'],
+      starThresholds:[160,230,320] },
 
-    const BUILDING_RECIPES = {
-        nest: { emoji:'🏗️', label:'Гнездо', desc:'перо → магия', cost:8 },
-        forge: { emoji:'⚒️', label:'Кузня', desc:'уголь → алмаз', cost:7 },
-        wolf: { emoji:'🐾', label:'Волчья тропа', desc:'шкура → одежда', cost:10 },
-        lunar: { emoji:'🏠', label:'Лунный дом', desc:'серп → зелье', cost:12 },
-        gorgon: { emoji:'🏛️', label:'Горгонариум', desc:'камень → статуя', cost:14 },
-        philosopher: { emoji:'⚗️', label:'Филос. завод', desc:'камень → эликсир', cost:20 }
-    };
+    { id:7,  name:"Избушка На Курьих Ножках",
+      goals:[{type:'resource',id:'nochnitsa',count:4},{type:'creature',id:'nochnitsa',count:2}],
+      startGems:40, startWater:22, startCreatures:['nochnitsa'],
+      availableCreatures:['nochnitsa','firebird','zmey'], availableBuildings:[],
+      starThresholds:[150,220,300] },
 
-    const CREATURE_TYPES = {
-        firebird: { emoji:'🐦', label:'Жар-птица', resName:'перо', resEmoji:'𓆰', cost:10, resType:'firebird', sellPrice:2, maxHp:100, hungerRate:1.3,
+    { id:8,  name:"Последнее Зелье",
+      goals:[{type:'crafted',id:'lunar',count:2},{type:'building',id:'lunar',count:3}],
+      startGems:60, startWater:25, startCreatures:['nochnitsa','firebird'],
+      availableCreatures:['nochnitsa','firebird','zmey'], availableBuildings:['lunar'],
+      starThresholds:[180,260,360] },
+
+    { id:9,  name:"Каменный Век",
+      goals:[{type:'resource',id:'basilisk',count:6},{type:'score',count:150}],
+      startGems:50, startWater:25, startCreatures:['basilisk'],
+      availableCreatures:['basilisk','volkolak','nochnitsa'], availableBuildings:[],
+      starThresholds:[160,240,340] },
+
+    { id:10, name:"Пещера Тьмы",
+      goals:[{type:'crafted',id:'gorgon',count:3},{type:'score',count:200}],
+      startGems:70, startWater:28, startCreatures:['volkolak','basilisk'],
+      availableCreatures:['basilisk','nochnitsa','volkolak'], availableBuildings:['gorgon'],
+      starThresholds:[200,300,420] },
+
+    { id:11, name:"Философский Камень",
+      goals:[{type:'resource',id:'unicorn',count:4}],
+      startGems:60, startWater:25, startCreatures:['unicorn'],
+      availableCreatures:['unicorn','basilisk','firebird'], availableBuildings:[],
+      starThresholds:[160,240,340] },
+
+    { id:12, name:"Эликсир Мудрости",
+      goals:[{type:'crafted',id:'philosopher',count:3},{type:'creature',id:'unicorn',count:1}],
+      startGems:80, startWater:28, startCreatures:['unicorn','basilisk'],
+      availableCreatures:['unicorn','basilisk','nochnitsa'], availableBuildings:['philosopher'],
+      starThresholds:[220,320,450] },
+
+    { id:13, name:"Сбор Урожая",
+      goals:[{type:'resource',id:'firebird',count:8},{type:'resource',id:'zmey',count:6},{type:'resource',id:'volkolak',count:4}],
+      startGems:55, startWater:28, startCreatures:['firebird','zmey','volkolak'],
+      availableCreatures:['firebird','zmey','volkolak'], availableBuildings:[],
+      starThresholds:[180,270,380] },
+
+    { id:14, name:"Мастерская Оборотня",
+      goals:[{type:'crafted',id:'nest',count:3},{type:'crafted',id:'forge',count:3},{type:'score',count:200}],
+      startGems:70, startWater:28, startCreatures:['firebird','zmey','volkolak'],
+      availableCreatures:['firebird','zmey','volkolak'], availableBuildings:['nest','forge'],
+      starThresholds:[220,320,450] },
+
+    { id:15, name:"Поле Чудес",
+      goals:[{type:'resource',id:'nochnitsa',count:6},{type:'resource',id:'basilisk',count:4},{type:'creature',id:'nochnitsa',count:3}],
+      startGems:70, startWater:30, startCreatures:['nochnitsa','basilisk'],
+      availableCreatures:['nochnitsa','basilisk','volkolak'], availableBuildings:[],
+      starThresholds:[200,300,420] },
+
+    { id:16, name:"Мистическая Поляна",
+      goals:[{type:'crafted',id:'lunar',count:3},{type:'crafted',id:'philosopher',count:2},{type:'score',count:250}],
+      startGems:90, startWater:32, startCreatures:['unicorn','nochnitsa'],
+      availableCreatures:['nochnitsa','unicorn','basilisk'], availableBuildings:['lunar','philosopher'],
+      starThresholds:[280,400,550] },
+
+    { id:17, name:"Темная Лощина",
+      goals:[{type:'crafted',id:'gorgon',count:4},{type:'score',count:300}],
+      startGems:90, startWater:32, startCreatures:['basilisk','unicorn'],
+      availableCreatures:['basilisk','unicorn','nochnitsa'], availableBuildings:['gorgon'],
+      starThresholds:[320,450,600] },
+
+    { id:18, name:"Камень Мудрости",
+      goals:[{type:'resource',id:'unicorn',count:5},{type:'score',count:300}],
+      startGems:80, startWater:30, startCreatures:['unicorn','basilisk'],
+      availableCreatures:['unicorn','basilisk','volkolak'], availableBuildings:[],
+      starThresholds:[260,380,520] },
+
+    { id:19, name:"Лунное Знамение",
+      goals:[{type:'crafted',id:'philosopher',count:3},{type:'crafted',id:'lunar',count:3},{type:'creature',id:'unicorn',count:2}],
+      startGems:100, startWater:35, startCreatures:['unicorn','nochnitsa'],
+      availableCreatures:['unicorn','nochnitsa','basilisk'], availableBuildings:['philosopher','lunar'],
+      starThresholds:[380,520,700] },
+
+    { id:20, name:"Тридевятое Царство",
+      goals:[
+        {type:'resource',id:'firebird',count:10},
+        {type:'resource',id:'zmey',count:8},
+        {type:'resource',id:'volkolak',count:6},
+        {type:'resource',id:'nochnitsa',count:4},
+        {type:'resource',id:'basilisk',count:3},
+        {type:'resource',id:'unicorn',count:2},
+        {type:'score',count:800}
+      ],
+      startGems:120, startWater:50,
+      startCreatures:['firebird','zmey','volkolak','nochnitsa','basilisk','unicorn'],
+      availableCreatures:['firebird','zmey','volkolak','nochnitsa','basilisk','unicorn'],
+      availableBuildings:['nest','forge','wolf','lunar','gorgon','philosopher'],
+      starThresholds:[600,800,1000] }
+];
+
+// ★ Перебалансированные лимиты времени
+const TIME_LIMITS = [
+    120, 150, 180, 200, 180,
+    220, 200, 240, 240, 280,
+    240, 300, 280, 320, 300,
+    360, 400, 340, 420, 600
+];
+LEVELS.forEach((lv, i) => { lv.timeLimit = TIME_LIMITS[i]; });
+
+const HEROES = [
+    { id:'ivan', name:'Иван-царевич', emoji:'🤴', bonus:'−20% стоимость Жар-птиц и Волколаков' },
+    { id:'baba', name:'Баба-яга', emoji:'🧙‍♀️', bonus:'+20% здоровье Ночниц и Василисков' },
+    { id:'vasilisa', name:'Василиса Премудрая', emoji:'👸', bonus:'+20% скорость насыщения Единорогов' },
+    { id:'gorynych', name:'Змей Горыныч', emoji:'🐉', bonus:'+20% к продаже ресурсов Жар-птиц и Огненных змеев' }
+];
+let selectedHero = null;
+
+const CRAFTED_PRODUCTS = {
+    nest: { emoji:'✨', label:'Магия', svg:`<svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="14" ry="10" fill="#aaccff" opacity="0.6"/><ellipse cx="20" cy="18" rx="10" ry="8" fill="#ccddff"/><path d="M12,16 Q20,8 28,16" stroke="#88aaff" stroke-width="2" fill="none"/><circle cx="14" cy="14" r="2" fill="#ffdd88"/><circle cx="26" cy="14" r="2" fill="#ffdd88"/></svg>` },
+    forge: { emoji:'💎', label:'Алмаз', svg:`<svg viewBox="0 0 40 40"><polygon points="20,4 34,16 20,36 6,16" fill="#88ddff" opacity="0.9"/><polygon points="20,8 30,17 20,32 10,17" fill="#bbeeff"/><polygon points="20,12 26,18 20,28 14,18" fill="#ffffff" opacity="0.5"/><path d="M12,16 L28,16" stroke="#66bbdd" stroke-width="1"/></svg>` },
+    wolf: { emoji:'🧥', label:'Одежда', svg:`<svg viewBox="0 0 40 40"><rect x="8" y="12" width="24" height="20" rx="3" fill="#8a6f4a"/><rect x="12" y="16" width="16" height="12" rx="2" fill="#6b4f3a"/><path d="M8,12 L14,8 L26,8 L32,12" fill="#7a5f4a"/></svg>` },
+    lunar: { emoji:'🧪', label:'Зелье', svg:`<svg viewBox="0 0 40 40"><rect x="14" y="10" width="12" height="20" rx="2" fill="#aa88ff" opacity="0.5"/><rect x="16" y="12" width="8" height="16" rx="1" fill="#ccaaFF"/><circle cx="20" cy="22" r="4" fill="#ddccff" opacity="0.6"/><path d="M18,10 L20,6 L22,10" stroke="#aa88ff" stroke-width="2" fill="none"/></svg>` },
+    gorgon: { emoji:'🗿', label:'Статуя', svg:`<svg viewBox="0 0 40 40"><rect x="10" y="14" width="20" height="20" rx="2" fill="#6a6a5a"/><rect x="14" y="18" width="12" height="12" rx="1" fill="#8a8a7a"/><circle cx="18" cy="22" r="2" fill="#ff8844"/><circle cx="22" cy="22" r="2" fill="#ff8844"/><path d="M18,26 L20,28 L22,26" stroke="#4a4a3a" stroke-width="1.5"/></svg>` },
+    philosopher: { emoji:'⚗️', label:'Эликсир', svg:`<svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="12" ry="14" fill="#88cc88" opacity="0.4"/><ellipse cx="20" cy="18" rx="8" ry="10" fill="#aaddaa"/><circle cx="20" cy="18" r="4" fill="#ffee88"/><path d="M16,10 L20,6 L24,10" stroke="#88cc88" stroke-width="2" fill="none"/></svg>` }
+};
+
+const BUILDING_RESOURCE_MAP = { nest:'firebird', forge:'zmey', wolf:'volkolak', lunar:'nochnitsa', gorgon:'basilisk', philosopher:'unicorn' };
+const CRAFT_TIME = { nest:3000, forge:2500, wolf:3500, lunar:4000, gorgon:4500, philosopher:6000 };
+const BUILDING_BONUS = { nest:5, forge:4, wolf:6, lunar:7, gorgon:8, philosopher:15 };
+
+const BUILDING_SVGS = {
+    nest: `<svg viewBox="0 0 72 72"><ellipse cx="36" cy="46" rx="28" ry="18" fill="#6b4a2a"/><ellipse cx="36" cy="44" rx="24" ry="14" fill="#8a6a3a"/><path d="M12,46 Q20,30 36,28 Q52,30 60,46" stroke="#4a2a0a" stroke-width="2" fill="none"/><circle cx="28" cy="40" r="4" fill="#aaccee" opacity="0.6"/><circle cx="44" cy="40" r="4" fill="#aaccee" opacity="0.6"/><path d="M30,48 L34,52 L38,48" stroke="#ddaa44" stroke-width="2" fill="none"/><path d="M24,44 Q28,38 36,36 Q44,38 48,44" stroke="#ddaa44" stroke-width="1.5" fill="none"/></svg>`,
+    forge: `<svg viewBox="0 0 72 72"><rect x="10" y="30" width="52" height="30" rx="4" fill="#4a3a2a"/><rect x="14" y="34" width="44" height="22" rx="2" fill="#6a5a3a"/><polygon points="20,34 36,20 52,34" fill="#5a4a2a"/><rect x="24" y="44" width="24" height="12" rx="2" fill="#3a2a1a"/><circle cx="30" cy="50" r="3" fill="#ff8833"/><circle cx="42" cy="50" r="3" fill="#ffaa44"/><path d="M28,20 L36,10 L44,20" stroke="#8a6a3a" stroke-width="3" fill="none"/><circle cx="36" cy="12" r="4" fill="#ffcc44"/><rect x="32" y="40" width="8" height="8" rx="1" fill="#88ddff" opacity="0.8"/></svg>`,
+    wolf: `<svg viewBox="0 0 72 72"><rect x="18" y="28" width="36" height="28" rx="6" fill="#6b4f3a"/><rect x="22" y="32" width="28" height="20" rx="4" fill="#8a6f4a"/><path d="M18,28 L28,18 L44,18 L54,28" fill="#5a3f2a"/><circle cx="34" cy="38" r="3" fill="#ffcc44"/><circle cx="38" cy="38" r="3" fill="#ffcc44"/><circle cx="34" cy="38" r="1.5" fill="#111"/><circle cx="38" cy="38" r="1.5" fill="#111"/><path d="M28,44 L34,48 L40,44" stroke="#111" stroke-width="1.5"/><path d="M30,48 L36,52 L42,48" stroke="#5a3f2a" stroke-width="2"/></svg>`,
+    lunar: `<svg viewBox="0 0 72 72"><rect x="14" y="28" width="44" height="30" rx="4" fill="#3a2a5a"/><rect x="18" y="32" width="36" height="22" rx="3" fill="#5a3a7a"/><circle cx="36" cy="44" r="8" fill="#aa88ff" opacity="0.6"/><circle cx="36" cy="44" r="4" fill="#ccaaFF"/><path d="M22,28 Q30,18 42,20 Q50,22 50,28" stroke="#7a5a9a" stroke-width="2" fill="none"/><path d="M24,52 L30,58 L42,58 L48,52" stroke="#7a5a9a" stroke-width="2" fill="none"/></svg>`,
+    gorgon: `<svg viewBox="0 0 72 72"><rect x="12" y="30" width="48" height="28" rx="4" fill="#4a4a3a"/><rect x="16" y="34" width="40" height="20" rx="3" fill="#6a6a5a"/><path d="M20,34 L28,24 L44,24 L52,34" fill="#5a5a4a"/><polygon points="28,24 30,16 34,18 32,24" fill="#6a6a5a"/><polygon points="44,24 42,16 38,18 40,24" fill="#6a6a5a"/><circle cx="28" cy="42" r="4" fill="#ff8844"/><circle cx="44" cy="42" r="4" fill="#ff8844"/><circle cx="28" cy="42" r="2" fill="#220000"/><circle cx="44" cy="42" r="2" fill="#220000"/><path d="M30,50 L36,54 L42,50" stroke="#4a4a3a" stroke-width="2"/></svg>`,
+    philosopher: `<svg viewBox="0 0 72 72"><rect x="16" y="26" width="40" height="32" rx="6" fill="#3a4a2a"/><rect x="20" y="30" width="32" height="24" rx="4" fill="#5a6a4a"/><circle cx="36" cy="44" r="10" fill="#88cc88" opacity="0.4"/><circle cx="36" cy="44" r="6" fill="#aaddaa"/><path d="M28,34 L34,28 L40,34 L46,28" stroke="#4a6a3a" stroke-width="2" fill="none"/><path d="M30,52 L36,58 L42,52" stroke="#4a6a3a" stroke-width="2" fill="none"/><circle cx="36" cy="44" r="2" fill="#ffee88"/></svg>`
+};
+
+const BUILDING_RECIPES = {
+    nest: { emoji:'🏗️', label:'Гнездо', desc:'перо → магия', cost:8 },
+    forge: { emoji:'⚒️', label:'Кузня', desc:'уголь → алмаз', cost:7 },
+    wolf: { emoji:'🐾', label:'Волчья тропа', desc:'шкура → одежда', cost:10 },
+    lunar: { emoji:'🏠', label:'Лунный дом', desc:'серп → зелье', cost:12 },
+    gorgon: { emoji:'🏛️', label:'Горгонариум', desc:'камень → статуя', cost:14 },
+    philosopher: { emoji:'⚗️', label:'Филос. завод', desc:'камень → эликсир', cost:20 }
+};
+
+const CREATURE_TYPES = {
+    firebird: { emoji:'🐦', label:'Жар-птица', resName:'перо', resEmoji:'𓆰', cost:10, resType:'firebird', sellPrice:2, maxHp:100, hungerRate:1.3,
 svg:`<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
 <defs>
     <radialGradient id="fbGlow" cx="50%" cy="55%" r="55%">
@@ -1836,11 +1794,7 @@ svg:`<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
         <stop offset="100%" stop-color="#1a0010"/>
     </radialGradient>
 </defs>
-
-<!-- СВЕЧЕНИЕ -->
 <ellipse cx="70" cy="78" rx="62" ry="50" fill="url(#fbGlow)"/>
-
-<!-- ХВОСТ-ВЕЕР (за телом) -->
 <g class="tail-group">
     <g transform="translate(70,92)">
         <g stroke-linecap="round" fill="none">
@@ -1876,8 +1830,6 @@ svg:`<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
         </g>
     </g>
 </g>
-
-<!-- ЛАПЫ -->
 <g class="leg-left">
     <rect x="62" y="96" width="4" height="18" rx="2" fill="#a82a05"/>
     <path d="M60,114 h10 M62,114 l-2,4 M66,114 l-1,4 M70,114 l2,4"
@@ -1888,8 +1840,6 @@ svg:`<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
     <path d="M74,114 h10 M76,114 l-2,4 M80,114 l-1,4 M84,114 l2,4"
           stroke="#8a2004" stroke-width="1.6" stroke-linecap="round" fill="none"/>
 </g>
-
-<!-- ТЕЛО -->
 <g class="body-group">
     <ellipse cx="72" cy="86" rx="22" ry="18" fill="url(#fbBody)" transform="rotate(-6 72 86)"/>
     <ellipse cx="66" cy="90" rx="11" ry="10" fill="url(#fbBreast)" opacity="0.85"/>
@@ -1899,33 +1849,24 @@ svg:`<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
         <path d="M72,92 q3,3 6,0 q-3,1 -6,0Z"/>
     </g>
 </g>
-
-<!-- КРЫЛО (сложено вдоль спины, примыкает к телу) -->
 <g class="wing-group">
-    <!-- основание крыла: от плеча вниз-назад вдоль спины -->
     <path d="M74,78
              C88,76 100,82 106,92
              C100,100 90,104 80,100
              C72,96 70,86 74,78 Z"
           fill="url(#fbWing)" stroke="#8a2004" stroke-width="0.8"/>
-    <!-- ярусные маховые: идут ВДОЛЬ крыла (от плеча к кончику) -->
     <path d="M78,82 C88,82 96,88 100,96" stroke="#fff2b0" stroke-width="1.2" fill="none" opacity="0.85"/>
     <path d="M79,87 C87,87 94,91 98,98" stroke="#ffdd66" stroke-width="1" fill="none" opacity="0.7"/>
     <path d="M80,92 C87,92 92,95 96,100" stroke="#ffb347" stroke-width="1" fill="none" opacity="0.6"/>
-    <!-- кончики-огоньки -->
     <circle cx="106" cy="92" r="1.6" fill="#fff3b0"/>
     <circle cx="100" cy="96" r="1.3" fill="#ffee88"/>
     <circle cx="98"  cy="98" r="1.1" fill="#ffdd66"/>
 </g>
-
-<!-- ШЕЯ -->
 <path d="M70,72
          C66,60 62,50 66,40
          C70,30 78,26 86,26"
       stroke="url(#fbNeck)" stroke-width="12"
       fill="none" stroke-linecap="round"/>
-
-<!-- ГОЛОВА -->
 <g class="head-group">
     <g>
         <path d="M84,16 q-4,-12 -12,-16 q6,8 8,16Z"  fill="#ffd75a"/>
@@ -1946,8 +1887,6 @@ svg:`<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="96" cy="37" rx="3" ry="4.5" fill="#e0430a"/>
     <ellipse cx="96" cy="37" rx="1.4" ry="2.4" fill="#ff7a22" opacity="0.8"/>
 </g>
-
-<!-- ИСКРЫ -->
 <g fill="#fffbe0">
     <circle cx="30" cy="52" r="1.7" opacity="0.9"/>
     <circle cx="110" cy="42" r="1.5" opacity="0.8"/>
@@ -2011,7 +1950,7 @@ svg:`<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
             svg:`<svg viewBox="0 0 120 120"><g class="body-group"><ellipse cx="60" cy="62" rx="28" ry="22" fill="#f0e6d0"/><ellipse cx="60" cy="58" rx="22" ry="18" fill="#fff6e8"/></g><g class="head-group"><ellipse cx="60" cy="38" rx="16" ry="14" fill="#f0e6d0"/><ellipse cx="60" cy="46" rx="10" ry="7" fill="#e6dcc8"/><circle cx="50" cy="34" r="5" fill="#88ccff"/><circle cx="70" cy="34" r="5" fill="#88ccff"/><circle cx="52" cy="34" r="2.5" fill="#111"/><circle cx="72" cy="34" r="2.5" fill="#111"/><circle cx="54" cy="32" r="1" fill="#fff"/><circle cx="74" cy="32" r="1" fill="#fff"/><ellipse cx="56" cy="44" rx="2" ry="1.5" fill="#d4c4a8"/><ellipse cx="64" cy="44" rx="2" ry="1.5" fill="#d4c4a8"/><polygon points="60,18 56,28 64,28" fill="#ffdd77"/><polygon points="60,12 58,22 62,22" fill="#ffcc55"/><circle cx="60" cy="14" r="3" fill="#ffee88"/><ellipse cx="48" cy="28" rx="5" ry="8" fill="#f0e6d0" transform="rotate(-15,48,28)"/><ellipse cx="72" cy="28" rx="5" ry="8" fill="#f0e6d0" transform="rotate(15,72,28)"/><path d="M50,28 Q44,34 48,44 Q40,48 46,56 Q38,60 44,68" stroke="#ff88aa" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M50,28 Q48,36 52,42 Q46,48 50,54 Q44,60 48,66" stroke="#aaffaa" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M70,28 Q76,34 72,44 Q80,48 74,56 Q82,60 76,68" stroke="#88aaff" stroke-width="4" fill="none" stroke-linecap="round"/></g><g class="tail-group"><path d="M88,64 Q100,56 104,68 Q108,80 98,82 Q90,84 94,74" fill="#ff88aa" opacity="0.8"/><path d="M88,64 Q102,54 106,66 Q110,78 100,80" stroke="#ffaacc" stroke-width="3" fill="none"/></g><g class="leg-left"><rect x="44" y="80" width="8" height="20" rx="3" fill="#f0e6d0"/><ellipse cx="48" cy="102" rx="6" ry="3" fill="#d4c4a8"/><rect x="50" y="84" width="7" height="16" rx="3" fill="#e6dcc8"/><ellipse cx="54" cy="102" rx="5" ry="3" fill="#d4c4a8"/></g><g class="leg-right"><rect x="68" y="80" width="8" height="20" rx="3" fill="#f0e6d0"/><ellipse cx="72" cy="102" rx="6" ry="3" fill="#d4c4a8"/><rect x="63" y="84" width="7" height="16" rx="3" fill="#e6dcc8"/><ellipse cx="67" cy="102" rx="5" ry="3" fill="#d4c4a8"/></g></svg>` }
     };
 
-    const RESOURCE_SVGS = {
+const RESOURCE_SVGS = {
     firebird: `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <linearGradient id="featherVane" x1="0" y1="0" x2="1" y2="1">
@@ -2054,12 +1993,12 @@ svg:`<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
         <circle cx="24" cy="6" r="1.6" fill="#fff6c0" opacity="0.9"/>
     </g>
 </svg>`,
-        zmey: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="14" ry="10" fill="#8a2a0a"/><ellipse cx="24" cy="22" rx="10" ry="8" fill="#b83a1a"/><circle cx="18" cy="20" r="3" fill="#ffdd44"/><circle cx="30" cy="20" r="3" fill="#ffdd44"/><circle cx="18" cy="20" r="1.5" fill="#111"/><circle cx="30" cy="20" r="1.5" fill="#111"/><path d="M20,28 L24,32 L28,28" stroke="#ff8833"/></svg>`,
-        volkolak: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="14" ry="10" fill="#6b4f3a"/><ellipse cx="24" cy="22" rx="10" ry="8" fill="#8a6f4a"/><circle cx="18" cy="20" r="3" fill="#ffcc44"/><circle cx="30" cy="20" r="3" fill="#ffcc44"/><circle cx="18" cy="20" r="1.5" fill="#111"/><circle cx="30" cy="20" r="1.5" fill="#111"/><path d="M20,26 L24,30 L28,26" stroke="#111"/></svg>`,
-        nochnitsa: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="14" ry="12" fill="#3a2a5a"/><ellipse cx="24" cy="20" rx="10" ry="8" fill="#5a3a7a"/><circle cx="18" cy="18" r="4" fill="#aa88ff"/><circle cx="30" cy="18" r="4" fill="#aa88ff"/><circle cx="18" cy="18" r="2" fill="#fff"/><circle cx="30" cy="18" r="2" fill="#fff"/><path d="M22,26 L24,30 L26,26" stroke="#aa88ff" stroke-width="2"/></svg>`,
-        basilisk: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="16" ry="10" fill="#2a6a3a"/><ellipse cx="24" cy="22" rx="12" ry="8" fill="#3a8a4a"/><circle cx="18" cy="18" r="4" fill="#ff4444"/><circle cx="30" cy="18" r="4" fill="#ff4444"/><circle cx="18" cy="18" r="2" fill="#220000"/><circle cx="30" cy="18" r="2" fill="#220000"/><path d="M22,28 L26,32 L30,28" stroke="#4a9a5a" stroke-width="2"/></svg>`,
-        unicorn: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="14" ry="10" fill="#f0e6d0"/><ellipse cx="24" cy="22" rx="10" ry="8" fill="#fff6e8"/><circle cx="18" cy="20" r="3" fill="#88ccff"/><circle cx="30" cy="20" r="3" fill="#88ccff"/><circle cx="18" cy="20" r="1.5" fill="#111"/><circle cx="30" cy="20" r="1.5" fill="#111"/><polygon points="24,10 22,18 26,18" fill="#ffdd77"/></svg>`
-    };
+    zmey: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="14" ry="10" fill="#8a2a0a"/><ellipse cx="24" cy="22" rx="10" ry="8" fill="#b83a1a"/><circle cx="18" cy="20" r="3" fill="#ffdd44"/><circle cx="30" cy="20" r="3" fill="#ffdd44"/><circle cx="18" cy="20" r="1.5" fill="#111"/><circle cx="30" cy="20" r="1.5" fill="#111"/><path d="M20,28 L24,32 L28,28" stroke="#ff8833"/></svg>`,
+    volkolak: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="14" ry="10" fill="#6b4f3a"/><ellipse cx="24" cy="22" rx="10" ry="8" fill="#8a6f4a"/><circle cx="18" cy="20" r="3" fill="#ffcc44"/><circle cx="30" cy="20" r="3" fill="#ffcc44"/><circle cx="18" cy="20" r="1.5" fill="#111"/><circle cx="30" cy="20" r="1.5" fill="#111"/><path d="M20,26 L24,30 L28,26" stroke="#111"/></svg>`,
+    nochnitsa: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="14" ry="12" fill="#3a2a5a"/><ellipse cx="24" cy="20" rx="10" ry="8" fill="#5a3a7a"/><circle cx="18" cy="18" r="4" fill="#aa88ff"/><circle cx="30" cy="18" r="4" fill="#aa88ff"/><circle cx="18" cy="18" r="2" fill="#fff"/><circle cx="30" cy="18" r="2" fill="#fff"/><path d="M22,26 L24,30 L26,26" stroke="#aa88ff" stroke-width="2"/></svg>`,
+    basilisk: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="16" ry="10" fill="#2a6a3a"/><ellipse cx="24" cy="22" rx="12" ry="8" fill="#3a8a4a"/><circle cx="18" cy="18" r="4" fill="#ff4444"/><circle cx="30" cy="18" r="4" fill="#ff4444"/><circle cx="18" cy="18" r="2" fill="#220000"/><circle cx="30" cy="18" r="2" fill="#220000"/><path d="M22,28 L26,32 L30,28" stroke="#4a9a5a" stroke-width="2"/></svg>`,
+    unicorn: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="26" rx="14" ry="10" fill="#f0e6d0"/><ellipse cx="24" cy="22" rx="10" ry="8" fill="#fff6e8"/><circle cx="18" cy="20" r="3" fill="#88ccff"/><circle cx="30" cy="20" r="3" fill="#88ccff"/><circle cx="18" cy="20" r="1.5" fill="#111"/><circle cx="30" cy="20" r="1.5" fill="#111"/><polygon points="24,10 22,18 26,18" fill="#ffdd77"/></svg>`
+};
 
 const DETAILED_GRASS_SVG = () => `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -2079,36 +2018,20 @@ const DETAILED_GRASS_SVG = () => `<svg viewBox="0 0 40 40" xmlns="http://www.w3.
             <stop offset="100%" stop-color="#8ad86a"/>
         </linearGradient>
     </defs>
-
-    <!-- Тень у основания -->
     <ellipse cx="20" cy="35" rx="10" ry="2" fill="#0a2a0a" opacity="0.35"/>
-
-    <!-- Травинки: тонкие, изогнутые, разной высоты -->
-
-    <!-- Дальние (тёмные) -->
     <path d="M13,35 Q10,22 11,10" stroke="url(#blade2)" stroke-width="2" fill="none" stroke-linecap="round"/>
     <path d="M27,35 Q30,22 29,10" stroke="url(#blade2)" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-    <!-- Средние -->
     <path d="M16,35 Q14,18 17,6" stroke="url(#blade1)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
     <path d="M24,35 Q26,18 23,6" stroke="url(#blade1)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-
-    <!-- Передние (светлые) -->
     <path d="M19,35 Q17,20 19,4" stroke="url(#blade3)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
     <path d="M21,35 Q23,20 22,8" stroke="url(#blade3)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-
-    <!-- Совсем тонкие усики -->
     <path d="M10,35 Q6,26 8,16" stroke="#3a9a3a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
     <path d="M30,35 Q34,26 32,16" stroke="#3a9a3a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
     <path d="M14,35 Q11,28 13,22" stroke="#4aaa3a" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.85"/>
     <path d="M26,35 Q29,28 27,22" stroke="#4aaa3a" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.85"/>
-
-    <!-- Блики на кончиках -->
     <path d="M19,6 Q19,10 19,14" stroke="#b0f090" stroke-width="0.7" fill="none" opacity="0.8"/>
     <path d="M17,8 Q16,12 16,16" stroke="#a0e880" stroke-width="0.6" fill="none" opacity="0.7"/>
     <path d="M23,10 Q24,14 24,18" stroke="#a0e880" stroke-width="0.6" fill="none" opacity="0.7"/>
-
-    <!-- Земля-основание -->
     <ellipse cx="20" cy="35" rx="8" ry="1.6" fill="#3a2a10" opacity="0.55"/>
 </svg>`;
     const DETAILED_WELL_SVG = () => `<svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
@@ -2238,11 +2161,8 @@ const HERO_SVGS = {
             </linearGradient>
         </defs>
         <circle cx="60" cy="60" r="57" fill="url(#ivanBg2)" stroke="#3a2810" stroke-width="3"/>
-        <!-- Солнце-фон -->
         <circle cx="60" cy="52" r="34" fill="#ffdd77" opacity="0.35"/>
         <circle cx="60" cy="52" r="24" fill="#ffee99" opacity="0.45"/>
-        
-        <!-- МЕЧ (за спиной, диагональ) -->
         <g transform="rotate(-35 60 60)">
             <rect x="56" y="18" width="8" height="70" rx="2" fill="url(#swordBlade)" stroke="#4a5a6a" stroke-width="1"/>
             <polygon points="56,18 60,4 64,18" fill="#e8eef4" stroke="#4a5a6a" stroke-width="1"/>
@@ -2250,49 +2170,29 @@ const HERO_SVGS = {
             <rect x="57" y="90" width="6" height="14" rx="2" fill="#5a3a1a"/>
             <circle cx="60" cy="106" r="4" fill="url(#ivanTrim2)" stroke="#6a4a10" stroke-width="1"/>
         </g>
-        
-        <!-- НОГИ -->
         <rect x="48" y="96" width="9" height="22" rx="4" fill="#3a2810"/>
         <rect x="63" y="96" width="9" height="22" rx="4" fill="#2a1808"/>
         <ellipse cx="52" cy="118" rx="8" ry="4" fill="#1a0e04"/>
         <ellipse cx="68" cy="118" rx="8" ry="4" fill="#1a0e04"/>
-        
-        <!-- КАФТАН -->
         <path d="M34,120 L34,74 Q34,62 44,60 L76,60 Q86,62 86,74 L86,120 Z" fill="url(#ivanCoat2)"/>
-        <!-- Золотая окантовка -->
         <path d="M34,74 Q34,62 44,60 L76,60 Q86,62 86,74" stroke="url(#ivanTrim2)" stroke-width="3" fill="none"/>
         <rect x="34" y="82" width="52" height="4" fill="url(#ivanTrim2)" opacity="0.9"/>
         <rect x="34" y="108" width="52" height="4" fill="url(#ivanTrim2)" opacity="0.9"/>
         <path d="M60,60 L60,120" stroke="url(#ivanTrim2)" stroke-width="2.5" opacity="0.85"/>
-        <!-- Кушак -->
         <rect x="34" y="94" width="52" height="8" fill="url(#ivanTrim2)"/>
         <rect x="34" y="96" width="52" height="4" fill="#8a5a10" opacity="0.4"/>
-        <!-- Застёжки -->
         <circle cx="60" cy="72" r="2.5" fill="url(#ivanTrim2)"/>
         <circle cx="60" cy="88" r="2.5" fill="url(#ivanTrim2)"/>
-        
-        <!-- ВОРОТНИК-СТОЙКА -->
         <path d="M44,60 Q60,68 76,60 L74,52 Q60,58 46,52 Z" fill="url(#ivanTrim2)"/>
-        
-        <!-- ЛЕВАЯ РУКА (опущена) -->
         <path d="M36,68 Q28,78 30,92 Q32,100 38,100" stroke="url(#ivanCoat2)" stroke-width="12" fill="none" stroke-linecap="round"/>
         <ellipse cx="38" cy="100" rx="5" ry="6" fill="url(#ivanSkin2)"/>
-        <!-- ПРАВАЯ РУКА (на поясе) -->
         <path d="M84,68 Q92,76 88,88 Q84,94 78,92" stroke="url(#ivanCoat2)" stroke-width="12" fill="none" stroke-linecap="round"/>
         <ellipse cx="78" cy="92" rx="5" ry="6" fill="url(#ivanSkin2)"/>
-        
-        <!-- ШЕЯ -->
         <rect x="55" y="50" width="10" height="12" rx="4" fill="#e8b888"/>
-        
-        <!-- ГОЛОВА -->
         <ellipse cx="60" cy="40" rx="14" ry="16" fill="url(#ivanSkin2)"/>
-        
-        <!-- ВОЛОСЫ (кудри по бокам) -->
         <path d="M46,38 Q42,34 44,28 Q46,24 50,26 Q48,32 46,38 Z" fill="url(#ivanHair2)"/>
         <path d="M74,38 Q78,34 76,28 Q74,24 70,26 Q72,32 74,38 Z" fill="url(#ivanHair2)"/>
         <path d="M48,26 Q54,20 60,20 Q66,20 72,26 Q68,24 60,24 Q52,24 48,26 Z" fill="url(#ivanHair2)"/>
-        
-        <!-- ГЛАЗА -->
         <ellipse cx="54" cy="38" rx="2.8" ry="3.4" fill="#fff"/>
         <ellipse cx="66" cy="38" rx="2.8" ry="3.4" fill="#fff"/>
         <circle cx="54" cy="39" r="1.9" fill="#3a7aa8"/>
@@ -2301,21 +2201,13 @@ const HERO_SVGS = {
         <circle cx="66" cy="38.5" r="0.8" fill="#111"/>
         <circle cx="54.5" cy="38" r="0.4" fill="#fff"/>
         <circle cx="66.5" cy="38" r="0.4" fill="#fff"/>
-        <!-- Брови -->
         <path d="M50,33 Q54,31 58,33" stroke="#6a3a10" stroke-width="1.6" fill="none" stroke-linecap="round"/>
         <path d="M62,33 Q66,31 70,33" stroke="#6a3a10" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-        
-        <!-- НОС -->
         <path d="M60,42 L58,46 Q60,48 62,46 Z" fill="#d8a878"/>
-        
-        <!-- УЛЫБКА -->
         <path d="M55,50 Q60,53 65,50" stroke="#8a3a2a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-        
-        <!-- ШАПКА -->
         <path d="M44,30 Q46,14 60,10 Q74,14 76,30 Q70,26 60,26 Q50,26 44,30 Z" fill="#4a2a7a"/>
         <path d="M44,30 Q60,34 76,30" stroke="url(#ivanTrim2)" stroke-width="2.5" fill="none"/>
         <circle cx="60" cy="8" r="3" fill="url(#ivanTrim2)"/>
-        <!-- Соболиная опушка -->
         <ellipse cx="60" cy="30" rx="17" ry="3.5" fill="#2a1a0c"/>
         <ellipse cx="60" cy="28" rx="17" ry="2" fill="#4a3a2a" opacity="0.6"/>
     </svg>`,
@@ -2353,110 +2245,72 @@ const HERO_SVGS = {
         </radialGradient>
     </defs>
     <circle cx="60" cy="60" r="57" fill="url(#babaBg2)" stroke="#3a2810" stroke-width="3"/>
-    
-    <!-- Луна-фон -->
     <circle cx="88" cy="28" r="14" fill="#e8e8d0" opacity="0.25"/>
     <circle cx="92" cy="26" r="11" fill="#f0f0e0" opacity="0.2"/>
-    <!-- Звёзды -->
     <circle cx="22" cy="20" r="1.2" fill="#fff" opacity="0.8"/>
     <circle cx="34" cy="14" r="0.9" fill="#fff" opacity="0.6"/>
     <circle cx="98" cy="48" r="1" fill="#fff" opacity="0.7"/>
     <circle cx="18" cy="42" r="0.8" fill="#fff" opacity="0.5"/>
-    
-    <!-- МЕТЛА (за спиной, диагональ) -->
     <g transform="rotate(25 60 60)">
         <rect x="57" y="30" width="6" height="60" rx="2" fill="#5a3a1a"/>
         <rect x="57" y="30" width="6" height="60" rx="2" fill="#8a5a2a" opacity="0.4"/>
-        <!-- Прутья -->
         <path d="M60,90 Q48,104 42,116" stroke="#a8783a" stroke-width="2" fill="none" stroke-linecap="round"/>
         <path d="M60,90 Q54,106 50,118" stroke="#8a5a2a" stroke-width="2" fill="none" stroke-linecap="round"/>
         <path d="M60,90 Q60,108 58,120" stroke="#a8783a" stroke-width="2" fill="none" stroke-linecap="round"/>
         <path d="M60,90 Q66,106 70,118" stroke="#8a5a2a" stroke-width="2" fill="none" stroke-linecap="round"/>
         <path d="M60,90 Q72,104 78,116" stroke="#a8783a" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <!-- Обвязка -->
         <rect x="54" y="86" width="12" height="5" rx="2" fill="#7a4a1a"/>
         <rect x="54" y="86" width="12" height="5" rx="2" fill="#a8783a" opacity="0.5"/>
     </g>
-    
-    <!-- НОГИ -->
     <rect x="50" y="100" width="7" height="18" rx="3" fill="#1a0a14"/>
     <rect x="63" y="100" width="7" height="18" rx="3" fill="#1a0a14"/>
     <ellipse cx="53" cy="118" rx="7" ry="3.5" fill="#0a0208"/>
     <ellipse cx="67" cy="118" rx="7" ry="3.5" fill="#0a0208"/>
-    
-    <!-- ХАЛАТ -->
     <path d="M38,120 L38,72 Q38,60 48,58 L72,58 Q82,60 82,72 L82,120 Z" fill="url(#babaRobe)"/>
-    <!-- Кайма -->
     <path d="M38,72 Q38,60 48,58 L72,58 Q82,60 82,72" stroke="url(#babaRobeTrim)" stroke-width="2.5" fill="none"/>
     <path d="M38,120 L38,72" stroke="url(#babaRobeTrim)" stroke-width="1.5" opacity="0.7"/>
     <path d="M82,120 L82,72" stroke="url(#babaRobeTrim)" stroke-width="1.5" opacity="0.7"/>
-    <!-- Руны на халате -->
     <circle cx="52" cy="82" r="1.5" fill="#88ff88" opacity="0.5"/>
     <circle cx="68" cy="82" r="1.5" fill="#88ff88" opacity="0.5"/>
     <circle cx="60" cy="96" r="1.5" fill="#88ff88" opacity="0.5"/>
     <circle cx="52" cy="108" r="1.2" fill="#88ff88" opacity="0.4"/>
     <circle cx="68" cy="108" r="1.2" fill="#88ff88" opacity="0.4"/>
-    
-    <!-- ЛЕВАЯ РУКА (с клюкой) -->
     <path d="M40,66 Q30,72 28,84 Q26,92 32,96" stroke="url(#babaRobe)" stroke-width="10" fill="none" stroke-linecap="round"/>
     <ellipse cx="32" cy="96" rx="5" ry="6" fill="url(#babaSkin2)"/>
-    
-    <!-- ПРАВАЯ РУКА (поднята, с посохом) -->
     <path d="M80,66 Q88,60 92,50 Q94,44 90,40" stroke="url(#babaRobe)" stroke-width="10" fill="none" stroke-linecap="round"/>
     <ellipse cx="90" cy="40" rx="5" ry="6" fill="url(#babaSkin2)"/>
-    
-    <!-- ПОСОХ с камнем (в правой руке) -->
     <g>
         <circle cx="92" cy="22" r="18" fill="url(#gemGlow2)"/>
         <rect x="89" y="34" width="5" height="50" rx="2" fill="#4a2a0a"/>
         <rect x="89" y="34" width="5" height="50" rx="2" fill="#8a5a2a" opacity="0.4"/>
         <rect x="85" y="32" width="13" height="5" rx="2" fill="#6a4a1a"/>
-        <!-- Камень -->
         <circle cx="92" cy="22" r="8" fill="url(#gem2)" stroke="#2a4a2a" stroke-width="1.5"/>
         <ellipse cx="89" cy="19" rx="3" ry="2" fill="#fff" opacity="0.7"/>
-        <!-- Искры -->
         <circle cx="80" cy="14" r="1.5" fill="#88ff88" opacity="0.9"/>
         <circle cx="104" cy="16" r="1.3" fill="#88ff88" opacity="0.8"/>
         <circle cx="100" cy="32" r="1.1" fill="#88ff88" opacity="0.7"/>
         <circle cx="82" cy="30" r="1.1" fill="#88ff88" opacity="0.7"/>
     </g>
-    
-    <!-- ШЕЯ -->
     <rect x="56" y="50" width="8" height="10" rx="3" fill="#b89878"/>
-    
-    <!-- ГОЛОВА -->
     <ellipse cx="60" cy="40" rx="13" ry="15" fill="url(#babaSkin2)"/>
-    
-    <!-- МОРЩИНЫ -->
     <path d="M50,36 Q53,35 55,36" stroke="#8a6848" stroke-width="0.7" fill="none" opacity="0.6"/>
     <path d="M65,36 Q67,35 70,36" stroke="#8a6848" stroke-width="0.7" fill="none" opacity="0.6"/>
     <path d="M52,48 Q60,50 68,48" stroke="#8a6848" stroke-width="0.6" fill="none" opacity="0.5"/>
-    
-    <!-- ГЛАЗА (хитрые, светящиеся) -->
     <path d="M50,38 Q54,35 58,38" stroke="#2a1a0a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
     <path d="M62,38 Q66,35 70,38" stroke="#2a1a0a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
     <circle cx="54" cy="39" r="1.6" fill="#111"/>
     <circle cx="66" cy="39" r="1.6" fill="#111"/>
     <circle cx="54.4" cy="38.6" r="0.6" fill="#aaffaa"/>
     <circle cx="66.4" cy="38.6" r="0.6" fill="#aaffaa"/>
-    
-    <!-- НОС КРЮЧКОМ -->
     <path d="M58,40 Q55,46 59,48 Q62,47 61,44" fill="#b89878" stroke="#8a6848" stroke-width="0.7"/>
-    
-    <!-- РОТ (беззубая ухмылка) -->
     <path d="M53,52 Q60,56 67,52" stroke="#5a2a1a" stroke-width="1.3" fill="none"/>
     <path d="M56,53 L57,55 L58,53" fill="#fff"/>
     <path d="M62,53 L63,55 L64,53" fill="#fff"/>
-    
-    <!-- СЕДЫЕ ВОЛОСЫ -->
     <path d="M47,38 Q44,32 46,26 Q50,22 54,24" stroke="#d8d0c0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     <path d="M73,38 Q76,32 74,26 Q70,22 66,24" stroke="#d8d0c0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     <path d="M48,26 Q54,22 60,22 Q66,22 72,26" stroke="#c8c0b0" stroke-width="2" fill="none"/>
-    
-    <!-- ПЛАТОК -->
     <path d="M44,34 Q44,18 60,14 Q76,18 76,34 Q72,24 60,22 Q48,24 44,34 Z" fill="#2a0a1a"/>
     <path d="M44,34 Q50,38 60,38 Q70,38 76,34" stroke="url(#babaRobeTrim)" stroke-width="2" fill="none"/>
-    <!-- Узел платка -->
     <path d="M60,14 Q58,8 56,6 M60,14 Q62,8 64,6" stroke="#2a0a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
     <circle cx="60" cy="14" r="2.5" fill="#4a1a3a"/>
 </svg>`,
@@ -2494,26 +2348,17 @@ const HERO_SVGS = {
             </radialGradient>
         </defs>
         <circle cx="60" cy="60" r="57" fill="url(#vasBg2)" stroke="#3a2810" stroke-width="3"/>
-        
-        <!-- Облака-фон -->
         <ellipse cx="24" cy="24" rx="14" ry="6" fill="#fff" opacity="0.5"/>
         <ellipse cx="34" cy="22" rx="10" ry="5" fill="#fff" opacity="0.4"/>
         <ellipse cx="96" cy="32" rx="12" ry="5" fill="#fff" opacity="0.4"/>
-        
-        <!-- НОГИ / обувь -->
         <ellipse cx="52" cy="118" rx="8" ry="3.5" fill="#5a2a1a"/>
         <ellipse cx="68" cy="118" rx="8" ry="3.5" fill="#5a2a1a"/>
-        
-        <!-- КОСА (за спиной, спускается слева) -->
         <path d="M46,44 Q36,64 38,86 Q40,102 36,116" 
               stroke="url(#vasHair2)" stroke-width="10" fill="none" stroke-linecap="round"/>
         <path d="M46,44 Q38,64 40,86 Q42,102 38,116" 
               stroke="#ffe890" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
-        <!-- Перевязь косы -->
         <path d="M37,102 Q42,100 45,104" stroke="#c93838" stroke-width="3" fill="none" stroke-linecap="round"/>
         <path d="M37,102 Q34,108 32,112 M45,104 Q48,110 50,114" stroke="#c93838" stroke-width="2" fill="none" stroke-linecap="round"/>
-        
-        <!-- САРАФАН -->
         <path d="M38,120 L38,76 Q38,62 48,60 L72,60 Q82,62 82,76 L82,120 Z" fill="url(#vasSarafan)"/>
         <path d="M48,60 Q60,66 72,60 L70,52 Q60,58 50,52 Z" fill="url(#vasTrim2)"/>
         <rect x="58" y="66" width="4" height="54" fill="url(#vasTrim2)" opacity="0.7"/>
@@ -2522,14 +2367,10 @@ const HERO_SVGS = {
         <path d="M50,104 Q60,108 70,104" stroke="url(#vasTrim2)" stroke-width="1.5" fill="none" opacity="0.7"/>
         <rect x="38" y="94" width="44" height="6" fill="url(#vasTrim2)"/>
         <circle cx="60" cy="97" r="3" fill="#c93838"/>
-        
-        <!-- РУКИ -->
         <path d="M40,68 Q32,78 34,90 Q36,98 42,98" stroke="url(#vasSarafan)" stroke-width="10" fill="none" stroke-linecap="round"/>
         <ellipse cx="42" cy="98" rx="5" ry="6" fill="url(#vasSkin2)"/>
         <path d="M80,68 Q88,74 86,84 Q84,90 78,90" stroke="url(#vasSarafan)" stroke-width="10" fill="none" stroke-linecap="round"/>
         <ellipse cx="78" cy="90" rx="5" ry="6" fill="url(#vasSkin2)"/>
-        
-        <!-- ПТИЦА на руке -->
         <g transform="translate(78,88)">
             <ellipse cx="0" cy="0" rx="8" ry="6" fill="#e8e8f0"/>
             <ellipse cx="2" cy="-2" rx="4" ry="3" fill="#ffffff"/>
@@ -2539,11 +2380,7 @@ const HERO_SVGS = {
             <path d="M-6,0 Q-10,-2 -8,-5" stroke="#c8c8d8" stroke-width="1.5" fill="none"/>
             <path d="M-4,2 Q-8,4 -6,7" stroke="#c8c8d8" stroke-width="1.5" fill="none"/>
         </g>
-        
-        <!-- ШЕЯ -->
         <rect x="55" y="50" width="10" height="12" rx="4" fill="#f0d0a8"/>
-        
-        <!-- ВОЛОСЫ: ЗАДНЯЯ МАССА (за головой) -->
         <path d="M44,46 
                  Q38,38 40,28 
                  Q42,18 50,14 
@@ -2553,11 +2390,7 @@ const HERO_SVGS = {
                  Q70,42 60,42 
                  Q50,42 44,46 Z" 
               fill="url(#vasHair2)"/>
-        
-        <!-- ГОЛОВА -->
         <ellipse cx="60" cy="40" rx="13" ry="15" fill="url(#vasSkin2)"/>
-        
-        <!-- ВОЛОСЫ: ПЕРЕДНЯЯ ЧЁЛКА (поверх головы) -->
         <path d="M46,36 
                  Q44,26 48,20 
                  Q54,14 60,14 
@@ -2568,14 +2401,9 @@ const HERO_SVGS = {
                  Q56,28 52,30 
                  Q48,32 46,36 Z" 
               fill="url(#vasHair2)"/>
-        <!-- Блик на волосах -->
         <path d="M50,22 Q56,18 62,19" stroke="url(#vasHairShine)" stroke-width="3" fill="none" stroke-linecap="round"/>
-        
-        <!-- РУМЯНЕЦ -->
         <ellipse cx="50" cy="46" rx="4" ry="2.5" fill="#f0a080" opacity="0.5"/>
         <ellipse cx="70" cy="46" rx="4" ry="2.5" fill="#f0a080" opacity="0.5"/>
-        
-        <!-- ГЛАЗА -->
         <ellipse cx="54" cy="38" rx="3" ry="3.6" fill="#fff"/>
         <ellipse cx="66" cy="38" rx="3" ry="3.6" fill="#fff"/>
         <circle cx="54" cy="39" r="2.2" fill="#3a8a6a"/>
@@ -2587,14 +2415,8 @@ const HERO_SVGS = {
         <path d="M51,34 L52,32 M56,33 L57,31 M64,33 L65,31 M69,34 L70,32" stroke="#3a2a10" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M50,32 Q54,30 58,32" stroke="#a87a20" stroke-width="1.5" fill="none" stroke-linecap="round"/>
         <path d="M62,32 Q66,30 70,32" stroke="#a87a20" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        
-        <!-- НОС -->
         <path d="M60,42 L58,46 Q60,48 62,46 Z" fill="#e8b888"/>
-        
-        <!-- ГУБЫ -->
         <path d="M56,50 Q60,52 64,50 Q60,55 56,50 Z" fill="#d04848"/>
-        
-        <!-- КОКОШНИК (поверх волос) -->
         <path d="M42,30 Q42,12 60,8 Q78,12 78,30 L74,32 Q74,18 60,16 Q46,18 46,32 Z" fill="url(#vasTrim2)"/>
         <path d="M42,30 Q48,34 60,34 Q72,34 78,30" stroke="#a87820" stroke-width="2" fill="none"/>
         <circle cx="60" cy="12" r="2.5" fill="#88ddff"/>
@@ -2642,11 +2464,7 @@ const HERO_SVGS = {
             <stop offset="100%" stop-color="#ff3300" stop-opacity="0"/>
         </radialGradient>
     </defs>
-
     <circle cx="60" cy="60" r="57" fill="url(#gorBg3)" stroke="#3a2810" stroke-width="3"/>
-
-    <!-- ===== КРЫЛЬЯ (за спиной, широкие, в стороны) ===== -->
-    <!-- Левое крыло -->
     <g>
         <path d="M42,92 Q14,86 4,58 Q6,72 14,80 Q8,62 14,44 Q20,60 28,68 Q26,50 34,34 Q38,52 44,62 Z"
               fill="#1a4a12" stroke="#0a2a08" stroke-width="1.2"/>
@@ -2655,7 +2473,6 @@ const HERO_SVGS = {
         <path d="M34,62 Q26,56 22,44" stroke="#4a9a3a" stroke-width="1.3" fill="none" opacity="0.8"/>
         <path d="M36,50 Q32,44 30,36" stroke="#4a9a3a" stroke-width="1.2" fill="none" opacity="0.7"/>
     </g>
-    <!-- Правое крыло -->
     <g>
         <path d="M78,92 Q106,86 116,58 Q114,72 106,80 Q112,62 106,44 Q100,60 92,68 Q94,50 86,34 Q82,52 76,62 Z"
               fill="#1a4a12" stroke="#0a2a08" stroke-width="1.2"/>
@@ -2664,11 +2481,8 @@ const HERO_SVGS = {
         <path d="M86,62 Q94,56 98,44" stroke="#4a9a3a" stroke-width="1.3" fill="none" opacity="0.8"/>
         <path d="M84,50 Q88,44 90,36" stroke="#4a9a3a" stroke-width="1.2" fill="none" opacity="0.7"/>
     </g>
-
-    <!-- ===== ТЕЛО (мощное, с брюхом) ===== -->
     <path d="M32,120 Q28,98 40,88 Q50,82 60,82 Q70,82 80,88 Q92,98 88,120 Z" fill="url(#gorBody3)"/>
     <path d="M40,120 Q38,102 50,94 Q60,90 70,94 Q82,102 80,120 Z" fill="url(#gorBelly3)" opacity="0.75"/>
-    <!-- Чешуя на брюхе -->
     <g fill="#c8d868" opacity="0.55">
         <ellipse cx="50" cy="104" rx="3" ry="2"/>
         <ellipse cx="60" cy="100" rx="3.5" ry="2.2"/>
@@ -2677,25 +2491,16 @@ const HERO_SVGS = {
         <ellipse cx="65" cy="112" rx="2.8" ry="2"/>
         <ellipse cx="60" cy="118" rx="2.5" ry="1.8"/>
     </g>
-    <!-- Боковые чешуйки -->
     <g fill="#3a8a2a" opacity="0.7">
         <ellipse cx="38" cy="100" rx="2.5" ry="3"/>
         <ellipse cx="82" cy="100" rx="2.5" ry="3"/>
         <ellipse cx="36" cy="110" rx="2.2" ry="2.6"/>
         <ellipse cx="84" cy="110" rx="2.2" ry="2.6"/>
     </g>
-
-    <!-- ===== ЛАПЫ (по бокам, с когтями) ===== -->
-    <!-- Левая лапа -->
     <path d="M38,112 Q28,114 22,118" stroke="#1a4a12" stroke-width="7" fill="none" stroke-linecap="round"/>
     <path d="M22,118 L16,120 M22,118 L20,122 M22,118 L26,120" stroke="#0a2a08" stroke-width="2.2" stroke-linecap="round"/>
-    <!-- Правая лапа -->
     <path d="M82,112 Q92,114 98,118" stroke="#1a4a12" stroke-width="7" fill="none" stroke-linecap="round"/>
     <path d="M98,118 L104,120 M98,118 L100,122 M98,118 L94,120" stroke="#0a2a08" stroke-width="2.2" stroke-linecap="round"/>
-
-    <!-- ===== ШЕИ (три, широко разведены) ===== -->
-
-    <!-- Левая шея: от тела влево-вверх -->
     <path d="M46,90 Q36,78 26,64 Q20,56 18,46"
           stroke="url(#gorNeck3)" stroke-width="13" fill="none" stroke-linecap="round"/>
     <path d="M46,90 Q36,78 26,64 Q20,56 18,46"
@@ -2705,8 +2510,6 @@ const HERO_SVGS = {
         <circle cx="32" cy="70" r="1.3"/>
         <circle cx="25" cy="58" r="1.3"/>
     </g>
-
-    <!-- Правая шея: от тела вправо-вверх -->
     <path d="M74,90 Q84,78 94,64 Q100,56 102,46"
           stroke="url(#gorNeck3)" stroke-width="13" fill="none" stroke-linecap="round"/>
     <path d="M74,90 Q84,78 94,64 Q100,56 102,46"
@@ -2716,8 +2519,6 @@ const HERO_SVGS = {
         <circle cx="88" cy="70" r="1.3"/>
         <circle cx="95" cy="58" r="1.3"/>
     </g>
-
-    <!-- Центральная шея: прямо вверх, толще и выше -->
     <path d="M60,88 Q60,70 60,54 Q60,42 60,30"
           stroke="url(#gorNeck3)" stroke-width="17" fill="none" stroke-linecap="round"/>
     <path d="M60,88 Q60,70 60,54 Q60,42 60,30"
@@ -2729,38 +2530,25 @@ const HERO_SVGS = {
         <circle cx="64" cy="48" r="1.7"/>
         <circle cx="56" cy="40" r="1.7"/>
     </g>
-
-    <!-- ===== ГОЛОВЫ ===== -->
-
-    <!-- ЛЕВАЯ ГОЛОВА (смотрит влево-вниз) -->
     <g transform="translate(18,46) rotate(-25)">
         <ellipse cx="0" cy="0" rx="10" ry="9" fill="url(#gorBody3)"/>
         <ellipse cx="0" cy="4" rx="7" ry="5.5" fill="url(#gorBelly3)" opacity="0.75"/>
-        <!-- Глаз -->
         <ellipse cx="-3" cy="-3" rx="3" ry="3.4" fill="url(#gorEye3)"/>
         <ellipse cx="-3" cy="-3" rx="1.1" ry="2.6" fill="#1a0000"/>
         <circle cx="-2.4" cy="-3.8" r="0.7" fill="#fff"/>
-        <!-- Надбровный гребень -->
         <path d="M-8,-7 L-4,-11 L0,-7" fill="#c93a10" stroke="#8a1a00" stroke-width="0.7"/>
         <path d="M0,-7 L4,-11 L8,-7" fill="#c93a10" stroke="#8a1a00" stroke-width="0.7"/>
-        <!-- Рог -->
         <path d="M2,-9 L7,-19 L-2,-13 Z" fill="url(#gorHorn3)" stroke="#4a2a10" stroke-width="0.8"/>
-        <!-- Ухо -->
         <path d="M8,-2 L12,-6 L8,-8 Z" fill="#1a4a12"/>
-        <!-- Ноздри -->
         <circle cx="-4" cy="2" r="0.9" fill="#1a0600"/>
         <circle cx="3" cy="2" r="0.9" fill="#1a0600"/>
-        <!-- Пасть с клыками -->
         <path d="M-8,6 Q0,10 8,6" stroke="#1a0600" stroke-width="1.4" fill="none"/>
         <path d="M-5,7 L-5,10 L-3,8 Z" fill="#fff"/>
         <path d="M3,7 L3,10 L1,8 Z" fill="#fff"/>
-        <!-- Огонь -->
         <ellipse cx="0" cy="14" rx="7" ry="9" fill="url(#gorFire3)"/>
         <path d="M-4,8 Q-6,16 -1,18 Q1,12 -1,8 Z" fill="#ffaa22" opacity="0.95"/>
         <path d="M2,8 Q3,14 6,16 Q7,11 5,8 Z" fill="#ffdd44" opacity="0.9"/>
     </g>
-
-    <!-- ПРАВАЯ ГОЛОВА (смотрит вправо-вниз) -->
     <g transform="translate(102,46) rotate(25)">
         <ellipse cx="0" cy="0" rx="10" ry="9" fill="url(#gorBody3)"/>
         <ellipse cx="0" cy="4" rx="7" ry="5.5" fill="url(#gorBelly3)" opacity="0.75"/>
@@ -2780,46 +2568,32 @@ const HERO_SVGS = {
         <path d="M4,8 Q6,16 1,18 Q-1,12 1,8 Z" fill="#ffaa22" opacity="0.95"/>
         <path d="M-2,8 Q-3,14 -6,16 Q-7,11 -5,8 Z" fill="#ffdd44" opacity="0.9"/>
     </g>
-
-    <!-- ЦЕНТРАЛЬНАЯ ГОЛОВА (самая крупная, смотрит прямо, выше всех) -->
     <g transform="translate(60,30)">
-        <!-- Череп -->
         <ellipse cx="0" cy="-2" rx="14" ry="13" fill="url(#gorBody3)"/>
-        <!-- Морда -->
         <ellipse cx="0" cy="7" rx="10" ry="8" fill="url(#gorBelly3)" opacity="0.8"/>
-        <!-- Глаза (золотые, светящиеся) -->
         <ellipse cx="-5.5" cy="-5" rx="3.6" ry="4" fill="url(#gorEye3)"/>
         <ellipse cx="5.5" cy="-5" rx="3.6" ry="4" fill="url(#gorEye3)"/>
         <ellipse cx="-5.5" cy="-5" rx="1.4" ry="2.8" fill="#1a0000"/>
         <ellipse cx="5.5" cy="-5" rx="1.4" ry="2.8" fill="#1a0000"/>
         <circle cx="-4.7" cy="-5.8" r="0.9" fill="#fff"/>
         <circle cx="6.3" cy="-5.8" r="0.9" fill="#fff"/>
-        <!-- Рога (два больших, вверх) -->
         <path d="M-8,-13 L-14,-28 L-3,-19 Z" fill="url(#gorHorn3)" stroke="#4a2a10" stroke-width="1"/>
         <path d="M8,-13 L14,-28 L3,-19 Z" fill="url(#gorHorn3)" stroke="#4a2a10" stroke-width="1"/>
-        <!-- Гребень по центру -->
         <path d="M-10,-11 L-5,-18 L0,-11" fill="#c93a10" stroke="#8a1a00" stroke-width="0.9"/>
         <path d="M0,-11 L5,-18 L10,-11" fill="#c93a10" stroke="#8a1a00" stroke-width="0.9"/>
-        <!-- Уши -->
         <path d="M-14,2 L-19,-3 L-13,-6 Z" fill="#1a4a12"/>
         <path d="M14,2 L19,-3 L13,-6 Z" fill="#1a4a12"/>
-        <!-- Ноздри -->
         <circle cx="-3" cy="6" r="1.3" fill="#1a0600"/>
         <circle cx="3" cy="6" r="1.3" fill="#1a0600"/>
-        <!-- Пасть -->
         <path d="M-10,11 Q0,17 10,11" stroke="#1a0600" stroke-width="1.7" fill="none"/>
-        <!-- Клыки -->
         <path d="M-6,12 L-6,15 L-4,13 Z" fill="#fff"/>
         <path d="M0,12 L0,16 L2,14 Z" fill="#fff"/>
         <path d="M6,12 L6,15 L4,13 Z" fill="#fff"/>
-        <!-- Огненное дыхание (три языка) -->
         <ellipse cx="0" cy="22" rx="11" ry="10" fill="url(#gorFire3)"/>
         <path d="M-8,15 Q-12,26 -4,30 Q0,18 -4,15 Z" fill="#ff7722" opacity="0.95"/>
         <path d="M-2,15 Q-4,26 2,30 Q4,18 2,15 Z" fill="#ffaa33" opacity="0.95"/>
         <path d="M5,15 Q3,26 9,30 Q11,18 9,15 Z" fill="#ffdd44" opacity="0.9"/>
     </g>
-
-    <!-- Искры вокруг -->
     <circle cx="10" cy="30" r="1.5" fill="#ffee88" opacity="0.9"/>
     <circle cx="110" cy="30" r="1.5" fill="#ffee88" opacity="0.9"/>
     <circle cx="6" cy="60" r="1.2" fill="#ff8822" opacity="0.75"/>
@@ -2863,8 +2637,8 @@ const HERO_SVGS = {
         const level = LEVELS[index];
         if (!level) return;
 
-document.getElementById('game-wrapper').classList.remove('hidden'); // <-- добавьте
-    
+document.getElementById('game-wrapper').classList.remove('hidden');
+
     levelMenu.classList.add('hidden');
 
 
@@ -2889,7 +2663,7 @@ totalCreatures = { firebird:0, zmey:0, volkolak:0, nochnitsa:0, basilisk:0, unic
         updateShopButtons();
         setTimeout(() => createWell(), 100);
         setTimeout(() => {
-            const startCreatures = level.startCreatures || ['firebird', 'zmey'];
+            const startCreatures = level.startCreatures || ['firebird'];
             for (let type of startCreatures) if (level.availableCreatures.includes(type)) spawnCreature(type);
             if (animationFrame) cancelAnimationFrame(animationFrame);
             updateMovement();
@@ -2963,10 +2737,15 @@ function checkGoal(goal) {
         if (stars > levelStars[currentLevel]) levelStars[currentLevel] = stars;
         levelCompleted[currentLevel] = true;
         if (currentLevel + 1 > unlockedLevel && currentLevel + 1 < LEVELS.length) unlockedLevel = currentLevel + 1;
+
+        // ★ Бонус за оставшееся время
+        const timeBonus = Math.floor(Math.max(0, timeLeft) / 10);
+        gems += timeBonus;
+
         const starText = '⭐'.repeat(stars) + '☆'.repeat(3 - stars);
         completeStars.textContent = starText;
         const timeStr = Math.floor(elapsed/60)+'м '+Math.floor(elapsed%60)+'с';
-        completeText.innerHTML = `Уровень ${level.id}: ${level.name}<br>⏱️ ${timeStr}<br>🎯 ${stars} звезды!<br>💎 ${gems} алмазов`;
+        completeText.innerHTML = `Уровень ${level.id}: ${level.name}<br>⏱️ ${timeStr}<br>🎯 ${stars} звезды!<br>💎 ${gems} алмазов${timeBonus>0 ? ` <span style="color:#a8e070;">(+${timeBonus} за скорость)</span>` : ''}`;
         if (currentLevel + 1 < LEVELS.length) { nextLevelBtn.style.display='inline-block'; nextLevelBtn.textContent=`➡️ Уровень ${LEVELS[currentLevel+1].id}`; }
         else { nextLevelBtn.style.display='inline-block'; nextLevelBtn.textContent='🏆 Все уровни пройдены!'; }
         levelComplete.classList.add('show');
@@ -2997,20 +2776,10 @@ function checkGoal(goal) {
             const div = document.createElement('div');
             div.className = 'goal-item';
             let emoji='📦', current=0, total=goal.count;
-
-
-
-
-
-
-
-
-
-
         if (goal.type==='resource') { const t=CREATURE_TYPES[goal.id]; emoji=t?t.resEmoji:'📦'; current = totalResources[goal.id] || 0; }
 else if (goal.type==='crafted') { const p=CRAFTED_PRODUCTS[goal.id]; emoji=p?p.emoji:'🔧'; current = totalCrafted[goal.id] || 0; }
 else if (goal.type==='creature') { const t=CREATURE_TYPES[goal.id]; emoji=t?t.emoji:'🐾'; current = totalCreatures[goal.id] || 0; }
-else if (goal.type==='building') {                 // ← ДОБАВЛЕНО
+else if (goal.type==='building') {
             const b=BUILDING_RECIPES[goal.id]; emoji=b?b.emoji:'🏗️';
             current = buildings.filter(x => x.craftType === goal.id).length;
         }
@@ -3076,7 +2845,6 @@ function showHarvestPopup(text, type) {
     popup.textContent = text || '✨ Собрано!';
     popup.classList.remove('popup-success', 'popup-error', 'popup-info');
 
-    // Автоопределение типа по эмодзи, если тип не задан
     if (!type) {
         if (/❌|⏳|💀|🔒/.test(text)) type = 'error';
         else if (/✅|✨|💰|🎉|🏆|🏁/.test(text)) type = 'success';
@@ -3112,13 +2880,11 @@ function showHarvestPopup(text, type) {
 
     const g = {x, y, element:div, alive:true, witherTimer:null, removeTimer:null};
 
-    // Через GRASS_WITHER_TIME трава начинает увядать (визуально бледнеет)
     g.witherTimer = setTimeout(() => {
         if (!g.alive || !g.element?.parentNode) return;
         g.element.classList.add('dying');
     }, GRASS_WITHER_TIME);
 
-    // Ещё через GRASS_REMOVE_TIME полностью исчезает
     g.removeTimer = setTimeout(() => {
         if (!g.alive) return;
         removeGrass(g);
@@ -3159,10 +2925,10 @@ function createWell() {
 
     well = {
         x: pos.x, y: pos.y, element: div, water,
-        // ↓ кулдаун: 0 = можно брать сразу
+        // ★ Смягчённый кулдаун
         cooldown: 0,
-        cooldownDuration: 5000,   // 5 секунд между порциями
-        waterPerClick: 3         // сколько воды даёт один клик
+        cooldownDuration: 3000,   // было 5000
+        waterPerClick: 5          // было 3
     };
 
     div.addEventListener('click', (e) => {
@@ -3182,24 +2948,21 @@ function createWell() {
         return;
     }
 
-    // выдаём порцию воды
-    // выдаём порцию воды, но не выше максимума
+    // ★ Потолок воды поднят до 15
+    const MAX_WATER = 15;
     const before = water;
-    water = Math.min(10, water + well.waterPerClick);
+    water = Math.min(MAX_WATER, water + well.waterPerClick);
     well.water = water;
 
     if (water === before) {
-        showHarvestPopup('💧 Колодец полон (10)');
-        // всё равно запускаем кулдаун, чтобы не спамили
+        showHarvestPopup(`💧 Колодец полон (${MAX_WATER})`);
         well.cooldown = now + well.cooldownDuration;
         updateUI();
         updateWellDisplay();
         return;
     }
-    // запускаем кулдаун
     well.cooldown = now + well.cooldownDuration;
 
-    // визуальный отклик
     const svg = well.element.querySelector('svg');
     if (svg) {
         svg.style.transition = 'transform .2s, filter .2s';
@@ -3209,7 +2972,6 @@ function createWell() {
             if (svg) { svg.style.transform = 'scale(1)'; svg.style.filter = ''; }
         }, 250);
     }
-    // всплеск-искра
     const splash = document.createElement('div');
     splash.textContent = '💧';
     splash.style.cssText = `position:absolute; left:${well.x - 8}px; top:${well.y - 40}px;
@@ -3239,13 +3001,11 @@ function startWellCooldownLoop() {
         const label = well.element.querySelector('.well-water-label');
 
         if (now < well.cooldown) {
-            // ещё нельзя брать — показываем таймер и приглушаем
             const left = Math.ceil((well.cooldown - now) / 1000);
             if (label) label.innerHTML = `⏳ ${left}с`;
             well.element.style.opacity = '0.7';
             well.element.style.cursor = 'not-allowed';
         } else {
-            // готово
             if (label) label.innerHTML = `💧 <span id="wellWaterDisplay">${Math.floor(water)}</span>`;
             well.element.style.opacity = '1';
             well.element.style.cursor = 'pointer';
@@ -3257,7 +3017,6 @@ function startWellCooldownLoop() {
 
 
 function refillWell() {
-    // пассивное восстановление отключено — вода теперь только по клику с кулдауном
     return;
 }
     function updateWellDisplay() { if (well?.element) { const d=well.element.querySelector('#wellWaterDisplay'); if (d) d.textContent=Math.floor(water); } }
@@ -3302,7 +3061,6 @@ if (isLevelComplete || isTimeUp || isPaused) return;
     for (let c of creatures) {
         if (!c.alive) continue;
 
-        // Центр существа (существо 80×80)
         const cx = c.x + 40, cy = c.y + 40;
 
         let closest = null, dist = Infinity;
@@ -3313,7 +3071,6 @@ if (isLevelComplete || isTimeUp || isPaused) return;
             }
         }
 
-        // 1) Если рядом трава — едим
         if (closest && dist < 55 && c.hp < c.maxHp) {
             removeGrass(closest);
             const bonus = (c.type === 'unicorn' && selectedHero === 'vasilisa') ? 30 : 25;
@@ -3328,13 +3085,11 @@ if (isLevelComplete || isTimeUp || isPaused) return;
                 }, 300);
             }
         }
-        // 2) Если трава видна, но далеко — идём к ней (и всё равно голодаем!)
         else if (closest && dist < 300 && c.hp < c.maxHp) {
             c.targetX = closest.x - 40;
             c.targetY = closest.y - 40;
-            applyHungerTick(c);   // ← вот этого не хватало
+            applyHungerTick(c);
         }
-        // 3) Травы нет вообще — тоже голодаем
         else {
             applyHungerTick(c);
         }
@@ -3344,20 +3099,18 @@ if (isLevelComplete || isTimeUp || isPaused) return;
     updateUI();
 }
 
-// Один тик голода — вынесено, чтобы не дублировать код
+// ★ Смягчённый голод
 function applyHungerTick(c) {
     if (c.hp < c.maxHp) {
-        // Голодное существо (HP не полное)
-        c.hungerTimer += 4.0;
+        c.hungerTimer += 2.5;
         if (c.hungerTimer >= 1) {
-            c.hp -= c.hungerRate * 2;      // ← если вводили HUNGER_MULTIPLIER — умножьте и тут
+            c.hp -= c.hungerRate * 1.2;
             c.hungerTimer = 0;
         }
     } else {
-        // Сытое (полное HP) — «естественный износ», очень медленный
-        c.hungerTimer += 2.0;
+        c.hungerTimer += 1.0;
         if (c.hungerTimer >= 1) {
-            c.hp -= 0.25;                  // ← сюда же HUNGER_MULTIPLIER, если вводили
+            c.hp -= 0.15;
             c.hungerTimer = 0;
         }
     }
@@ -3595,7 +3348,8 @@ checkLevelCompletion();
     }
 
     function saveGame() {
-        const data = { levelStars, levelCompleted, unlockedLevel, selectedHero, resources, craftedItems, gems, water };
+        const data = { levelStars, levelCompleted, unlockedLevel, selectedHero, resources, craftedItems, gems, water,
+                       totalResources, totalCrafted, totalCreatures };
         const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a'); a.href=url; a.download='ferma_save.json'; a.click();
@@ -3637,24 +3391,16 @@ function pauseGame() {
     isPaused = true;
     pausedAt = Date.now();
 
-    // Останавливаем музыку
     stopMusic();
 
-    // Останавливаем таймер уровня
     if (levelTimer) { clearInterval(levelTimer); levelTimer = null; }
-
-    // Останавливаем игровой цикл (голод, проверка целей)
     if (gameLoopInterval) { clearInterval(gameLoopInterval); gameLoopInterval = null; }
-
-    // Останавливаем анимацию движения
     if (animationFrame) { cancelAnimationFrame(animationFrame); animationFrame = null; }
 
-    // Ставим на паузу всех существ (drop-интервалы)
     for (let c of creatures) {
         if (c.dropInterval) { clearInterval(c.dropInterval); c.dropInterval._paused = true; c.dropInterval = null; }
     }
 
-    // Показываем окно паузы
     document.getElementById('pause-box').classList.add('show');
 }
 
@@ -3662,25 +3408,17 @@ function resumeGame() {
     if (!isPaused) return;
     isPaused = false;
 
-    // Сдвигаем время старта уровня, чтобы таймер не «съел» паузу
     if (pausedAt > 0) {
         levelStartTime += (Date.now() - pausedAt);
         pausedAt = 0;
     }
 
-    // Возобновляем музыку
     resumeMusic();
 
-    // Возобновляем таймер
     if (!levelTimer) levelTimer = setInterval(updateLevelTimer, 1000);
-
-    // Возобновляем игровой цикл
     if (!gameLoopInterval) gameLoopInterval = setInterval(() => { processHunger(); refillWell(); checkLevelCompletion(); }, 2000);
-
-    // Возобновляем движение
     if (!animationFrame) updateMovement();
 
-    // Возобновляем drop-интервалы существ
     const intervals = { firebird:6000, zmey:7000, volkolak:8000, nochnitsa:9000, basilisk:10000, unicorn:12000 };
     for (let c of creatures) {
         if (!c.alive || !c.element?.parentNode) continue;
@@ -3707,18 +3445,6 @@ function togglePause() {
     if (isPaused) resumeGame();
     else pauseGame();
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 // ---------- Кастомные confirm / alert ----------
 let _confirmResolve = null;
@@ -3748,11 +3474,7 @@ document.getElementById('alertOk').addEventListener('click', () => {
     document.getElementById('alert-box').classList.remove('show');
 });
 
-
-
 function gameExit(){window.close()}
-
-
 
     function initGame() {
 
@@ -3763,7 +3485,7 @@ document.getElementById('reset-btn')
     .addEventListener('click', resetCurrentLevel);
 
 
-   document.getElementById('game-wrapper').classList.add('hidden'); // <-- добавьте
+   document.getElementById('game-wrapper').classList.add('hidden');
     renderLevelMenu();
         renderLevelMenu();
         document.getElementById('btnNewGame').addEventListener('click', () => {
@@ -3801,12 +3523,6 @@ document.getElementById('reset-btn')
         console.log('🌿 Сказочная ферма — славянские сказы. Об авторе: Панченко М. А.');
 // ---- Горячие клавиши ----
 document.addEventListener('keydown', (e) => {
-    // Не срабатываем, если игра ещё не начата (меню уровней / меню героя / главное меню)
-    const gameActive = !document.getElementById('game-wrapper').classList.contains('hidden')
-                    && levelMenu.classList.contains('hidden')
-                    && !heroMenu.classList.contains('show')
-                    && !mainMenu.classList.contains('hidden') === false;
-    // Более простая проверка: игра идёт, если game-wrapper виден и меню уровней скрыто
     const inGame = !document.getElementById('game-wrapper').classList.contains('hidden')
                 && levelMenu.classList.contains('hidden');
 

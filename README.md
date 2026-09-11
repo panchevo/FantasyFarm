@@ -6,6 +6,7 @@
 
 **Автор:** Панченко М. А.  
 **Год:** 2026
+\n
 **Ссылка на игру:** https://panchevo.github.io/FantasyFarm/
 
 ---

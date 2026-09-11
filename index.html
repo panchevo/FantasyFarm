@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+   <link rel="icon" href="icon.ico">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Сказочная ферма</title>
@@ -1095,7 +1096,7 @@ body {
     <h1>🏰 Сказочная ферма</h1>
     <div class="subtitle">Выберите уровень</div>
     <div id="level-grid"></div>
-    <button class="back-btn" onclick="resetGame()">🔄 Начать заново</button>
+
 </div>
 
 <div id="level-complete">
@@ -1202,7 +1203,7 @@ function stopMusic() {
 
 
     const LEVELS = [
-        { id:1, name:"Перо Жар-птицы", goals:[{type:'resource',id:'firebird',count:5}], startGems:0, startWater:10, availableCreatures:['firebird'], availableBuildings:[], starThresholds:[60,45,30] },
+        { id:1, name:"Перо Жар-птицы", goals:[{type:'resource',id:'firebird',count:5}], startGems:0, startWater:10, availableCreatures:['firebird'], availableBuildings:[], starThresholds:[45,60,80] },
         { id:2, name:"Дело Василисы", goals:[{type:'creature',id:'firebird',count:4}], startGems:0, startWater:15, availableCreatures:['firebird','zmey'], availableBuildings:['nest'], starThresholds:[90,70,50] },
         { id:3, name:"Огневушка-поскакушка", goals:[{type:'resource',id:'zmey',count:5},{type:'creature',id:'zmey',count:3}], startGems:20, startWater:12, availableCreatures:['zmey','firebird'], availableBuildings:[], starThresholds:[75,55,35] },
         { id:4, name:"Во Кузнице", goals:[{type:'crafted',id:'nest',count:4},{type:'crafted',id:'forge',count:2},{type:'score',count:100}], startGems:30, startWater:15, availableCreatures:['firebird','zmey'], availableBuildings:['nest','forge'], starThresholds:[120,90,60] },
@@ -3080,8 +3081,7 @@ renderLevelMenu();
     }
 
     function initGame() {
-document.querySelector('#level-menu .back-btn')
-    .addEventListener('click', resetGame);
+
 document.getElementById('reset-btn')
     .addEventListener('click', resetCurrentLevel);
 

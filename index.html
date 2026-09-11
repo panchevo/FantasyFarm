@@ -1063,6 +1063,469 @@ body {
     transition: all .8s ease;
 }
 
+
+#pause-box {
+    position: fixed;
+    inset: 0;
+    z-index: 2200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 6, 4, 0.82);
+    backdrop-filter: blur(8px);
+}
+#pause-box.show { display: flex; }
+
+.pause-inner {
+    background: radial-gradient(ellipse at 50% 0%, #6a5230 0%, #3a2a14 50%, #1a1008 100%);
+    padding: 34px 46px;
+    border-radius: 22px;
+    border: 3px solid var(--civ-gold);
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 0 70px rgba(212,169,74,.5), 0 20px 50px rgba(0,0,0,.9),
+                inset 0 2px 0 rgba(255,220,150,.3);
+    animation: civ-complete-in .4s cubic-bezier(.34,1.56,.64,1);
+}
+.pause-inner h3 {
+    font-family: var(--civ-font-display);
+    color: var(--civ-gold-bright);
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-shadow: 0 0 24px rgba(212,169,74,.6), 0 2px 0 #5a4322;
+}
+.pause-inner p {
+    color: var(--civ-parchment-dark);
+    font-style: italic;
+    font-size: .9rem;
+    margin-bottom: 22px;
+}
+.pause-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+.pause-btn {
+    background: var(--civ-btn-bg);
+    border: 2px solid var(--civ-bronze-dark);
+    border-radius: var(--civ-radius);
+    padding: 11px 24px;
+    cursor: pointer;
+    font-family: var(--civ-font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--civ-ink);
+    box-shadow: var(--civ-shadow);
+    transition: .15s;
+}
+.pause-btn:hover {
+    background: var(--civ-btn-bg-hover);
+    border-color: var(--civ-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,240,200,.8);
+}
+.pause-btn:active { transform: translateY(0); box-shadow: var(--civ-shadow-inset); }
+.pause-btn-exit {
+    background: linear-gradient(180deg,#8a4a2a 0%,#5a2e14 100%);
+    color: #f5d7b0;
+    border-color: var(--civ-bronze);
+}
+.pause-btn-exit:hover {
+    background: linear-gradient(180deg,#aa5a3a 0%,#7a3e1e 100%);
+    border-color: var(--civ-gold);
+}
+.pause-close {
+    margin-top: 6px;
+    padding: 9px 28px;
+    background: linear-gradient(180deg,rgba(90,67,34,.7) 0%,rgba(46,34,16,.85) 100%);
+    border: 1px solid var(--civ-bronze);
+    border-radius: 14px;
+    color: var(--civ-parchment);
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: var(--civ-font-body);
+    letter-spacing: .5px;
+    transition: .2s;
+}
+.pause-close:hover {
+    border-color: var(--civ-gold);
+    color: var(--civ-gold-bright);
+    background: linear-gradient(180deg,rgba(138,106,58,.8) 0%,rgba(74,58,30,.9) 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============ ОБЩИЙ СТИЛЬ МОДАЛЬНЫХ ОКОН ============ */
+.civ-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2300;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 6, 4, 0.82);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    animation: civFadeIn .3s ease;
+}
+.civ-modal.show { display: flex; }
+
+@keyframes civFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes civModalIn {
+    0%   { transform: scale(.82) translateY(30px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.civ-modal-inner {
+    position: relative;
+    background:
+        radial-gradient(ellipse at 50% 0%, #6a5230 0%, #3a2a14 55%, #1a1008 100%);
+    padding: 34px 44px 28px;
+    border-radius: 22px;
+    border: 3px solid var(--civ-gold);
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    box-shadow:
+        0 0 70px rgba(212,169,74,.45),
+        0 20px 50px rgba(0,0,0,.9),
+        inset 0 2px 0 rgba(255,220,150,.35),
+        inset 0 -2px 0 rgba(0,0,0,.4);
+    animation: civModalIn .42s cubic-bezier(.34,1.56,.64,1);
+    overflow: hidden;
+}
+
+/* Декоративные уголки */
+.civ-modal-inner::before,
+.civ-modal-inner::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 3px solid var(--civ-gold-bright);
+    opacity: .9;
+    border-radius: 8px;
+    pointer-events: none;
+}
+.civ-modal-inner::before {
+    top: 9px; left: 9px;
+    border-right: none; border-bottom: none;
+    border-top-left-radius: 12px;
+}
+.civ-modal-inner::after {
+    bottom: 9px; right: 9px;
+    border-left: none; border-top: none;
+    border-bottom-right-radius: 12px;
+}
+
+/* Внутренняя тонкая рамка */
+.civ-modal-inner .civ-modal-frame {
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(212,169,74,.3);
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+/* Заголовок с ромбами */
+.civ-modal-title {
+    font-family: var(--civ-font-display);
+    color: var(--civ-gold-bright);
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-shadow:
+        0 0 28px rgba(212,169,74,.6),
+        0 2px 0 #5a4322,
+        0 4px 8px rgba(0,0,0,.8);
+    position: relative;
+}
+.civ-modal-title::after {
+    content: '◆ ◆ ◆';
+    display: block;
+    font-size: .55rem;
+    letter-spacing: 10px;
+    text-indent: 10px;
+    color: var(--civ-bronze);
+    margin-top: 8px;
+    opacity: .85;
+}
+
+/* Подзаголовок */
+.civ-modal-sub {
+    color: var(--civ-parchment-dark);
+    font-style: italic;
+    font-size: .95rem;
+    letter-spacing: .5px;
+    margin-bottom: 22px;
+    text-shadow: 0 1px 3px rgba(0,0,0,.7);
+}
+
+/* Тело окна */
+.civ-modal-body {
+    color: var(--civ-parchment);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 22px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.civ-modal-body strong { color: var(--civ-gold-bright); }
+
+/* Строка кнопок */
+.civ-modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Единая кнопка модалок */
+.civ-btn {
+    position: relative;
+    background: var(--civ-btn-bg);
+    border: 2px solid var(--civ-bronze-dark);
+    border-radius: var(--civ-radius);
+    padding: 11px 26px;
+    cursor: pointer;
+    font-family: var(--civ-font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--civ-ink);
+    box-shadow: var(--civ-shadow);
+    transition: .15s;
+}
+.civ-btn::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 1px solid rgba(255,240,200,.35);
+    border-radius: 7px;
+    pointer-events: none;
+}
+.civ-btn:hover {
+    background: var(--civ-btn-bg-hover);
+    border-color: var(--civ-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,240,200,.8);
+}
+.civ-btn:active { transform: translateY(0); box-shadow: var(--civ-shadow-inset); }
+
+/* Варианты кнопок */
+.civ-btn-primary {
+    background: linear-gradient(180deg,#8aaa4a 0%,#5a8a2a 50%,#3a6a1a 100%);
+    color: #fff;
+    border-color: var(--civ-gold);
+    box-shadow: inset 0 2px 0 rgba(200,255,150,.3), 0 4px 12px rgba(0,0,0,.6), 0 0 20px rgba(122,170,90,.3);
+    text-shadow: 0 1px 3px rgba(0,0,0,.7);
+}
+.civ-btn-primary::before { border-color: rgba(255,240,200,.25); }
+.civ-btn-primary:hover {
+    background: linear-gradient(180deg,#aaca6a 0%,#7aaa4a 50%,#5a8a3a 100%);
+    box-shadow: inset 0 2px 0 rgba(200,255,150,.4), 0 8px 20px rgba(0,0,0,.7), 0 0 40px rgba(122,170,90,.6);
+}
+.civ-btn-danger {
+    background: linear-gradient(180deg,#8a4a2a 0%,#5a2e14 100%);
+    color: #f5d7b0;
+    border-color: var(--civ-bronze);
+}
+.civ-btn-danger::before { border-color: rgba(255,180,120,.2); }
+.civ-btn-danger:hover {
+    background: linear-gradient(180deg,#aa5a3a 0%,#7a3e1e 100%);
+    border-color: var(--civ-gold);
+}
+.civ-btn-ghost {
+    background: linear-gradient(180deg,rgba(90,67,34,.7) 0%,rgba(46,34,16,.85) 100%);
+    border: 1px solid var(--civ-bronze);
+    color: var(--civ-parchment);
+    font-family: var(--civ-font-body);
+    font-size: .92rem;
+    letter-spacing: .5px;
+    padding: 9px 26px;
+    box-shadow: inset 0 1px 0 rgba(255,220,150,.15), 0 2px 6px rgba(0,0,0,.5);
+}
+.civ-btn-ghost::before { display: none; }
+.civ-btn-ghost:hover {
+    border-color: var(--civ-gold);
+    color: var(--civ-gold-bright);
+    background: linear-gradient(180deg,rgba(138,106,58,.8) 0%,rgba(74,58,30,.9) 100%);
+}
+
+/* ============ ВАРИАНТЫ POPUP-УВЕДОМЛЕНИЙ ============ */
+#harvest-popup.popup-success {
+    background: linear-gradient(180deg,rgba(200,240,180,.96) 0%,rgba(140,200,110,.96) 100%);
+    border-color: #a8e070;
+    box-shadow: 0 0 50px rgba(168,224,112,.7), 0 8px 24px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.6);
+    color: #1a3a0a;
+}
+#harvest-popup.popup-error {
+    background: linear-gradient(180deg,rgba(250,200,180,.96) 0%,rgba(220,120,100,.96) 100%);
+    border-color: #ff7766;
+    box-shadow: 0 0 50px rgba(255,120,100,.7), 0 8px 24px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.6);
+    color: #4a0a00;
+}
+#harvest-popup.popup-info {
+    background: linear-gradient(180deg,rgba(220,230,255,.96) 0%,rgba(170,200,240,.96) 100%);
+    border-color: #88aaff;
+    box-shadow: 0 0 50px rgba(136,170,255,.7), 0 8px 24px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.6);
+    color: #0a1a4a;
+}
+
+/* ============ УЛУЧШЕНИЕ СУЩЕСТВУЮЩИХ ОКОН ============ */
+
+/* Окно «Об авторе» */
+#about-box .about-inner {
+    position: relative;
+    background: radial-gradient(ellipse at 50% 0%, #6a5230 0%, #3a2a14 50%, #1a1008 100%);
+    padding: 36px 48px 28px;
+    border-radius: 22px;
+    border: 3px solid var(--civ-gold);
+    max-width: 480px;
+    text-align: center;
+    box-shadow: 0 0 70px rgba(212,169,74,.5), 0 20px 50px rgba(0,0,0,.9),
+                inset 0 2px 0 rgba(255,220,150,.35);
+    animation: civModalIn .45s cubic-bezier(.34,1.56,.64,1);
+}
+#about-box .about-inner::before,
+#about-box .about-inner::after {
+    content: '';
+    position: absolute;
+    width: 18px; height: 18px;
+    border: 3px solid var(--civ-gold-bright);
+    opacity: .9; border-radius: 8px;
+}
+#about-box .about-inner::before {
+    top: 9px; left: 9px;
+    border-right: none; border-bottom: none;
+    border-top-left-radius: 12px;
+}
+#about-box .about-inner::after {
+    bottom: 9px; right: 9px;
+    border-left: none; border-top: none;
+    border-bottom-right-radius: 12px;
+}
+#about-box .about-inner h3 {
+    font-family: var(--civ-font-display);
+    color: var(--civ-gold-bright);
+    font-size: 1.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-shadow: 0 0 28px rgba(212,169,74,.6), 0 2px 0 #5a4322;
+}
+#about-box .about-inner h3::after {
+    content: '◆ ◆ ◆';
+    display: block;
+    font-size: .55rem;
+    letter-spacing: 10px;
+    text-indent: 10px;
+    color: var(--civ-bronze);
+    margin-top: 8px;
+    opacity: .85;
+}
+#about-box .about-inner p {
+    color: var(--civ-parchment);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+
+/* Окно завершения уровня */
+#level-complete .complete-box {
+    position: relative;
+}
+#level-complete .complete-box::before,
+#level-complete .complete-box::after {
+    content: '';
+    position: absolute;
+    width: 22px; height: 22px;
+    border: 3px solid var(--civ-gold-bright);
+    opacity: .95; border-radius: 10px;
+}
+
+/* Главное меню — рамка вокруг контента */
+#main-menu::after {
+    content: '';
+    position: absolute;
+    inset: 22px;
+    border: 2px solid rgba(212,169,74,.35);
+    border-radius: 20px;
+    pointer-events: none;
+    box-shadow: inset 0 0 60px rgba(212,169,74,.08);
+}
+#main-menu .menu-buttons {
+    position: relative;
+    z-index: 2;
+}
+
+/* Меню уровней — рамка */
+#level-menu::after {
+    content: '';
+    position: absolute;
+    inset: 16px;
+    border: 2px solid rgba(212,169,74,.22);
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+#level-menu > * { position: relative; z-index: 1; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#level-menu > * { position: relative; z-index: 1; }
+
+#level-menu::after {
+    content: '';
+    position: fixed;        /* ← ключевое: fixed, а не absolute */
+    inset: 16px;
+    border: 2px solid rgba(212,169,74,.22);
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
 </style>
 </head>
 <body>
@@ -1074,6 +1537,7 @@ body {
         <button class="menu-btn-big" id="btnNewGame">🆕 Новая игра</button>
         <button class="menu-btn-big" id="btnLoadGame">📂 Загрузить</button>
         <button class="menu-btn-big small" id="btnAbout">📜 Об авторе</button>
+        <button class="menu-btn-big" id="btnExitX">🚪 Выйти</button>
     </div>
 </div>
 
@@ -1082,13 +1546,14 @@ body {
     <div class="hero-grid" id="heroGrid"></div>
 </div>
 
-<div id="about-box">
+<div id="about-box" class="civ-modal">
     <div class="about-inner">
+        <div class="civ-modal-frame"></div>
         <h3>📜 Об авторе</h3>
         <p><strong>Панченко М. А.</strong></p>
         <p>Сказочная ферма — славянские сказы.<br>Игра-стратегия с элементами фермерства и мифологии.</p>
         <p style="font-size:.85rem;color:#cdb88a;">2026</p>
-        <button class="close-about" id="closeAbout">Закрыть</button>
+        <button class="civ-btn civ-btn-primary close-about" id="closeAbout">Закрыть</button>
     </div>
 </div>
 
@@ -1157,6 +1622,47 @@ body {
     </div>
 </div>
 
+<div id="pause-box" class="civ-modal">
+    <div class="civ-modal-inner">
+        <div class="civ-modal-frame"></div>
+        <div class="civ-modal-title">⏸️ Пауза</div>
+        <div class="civ-modal-sub">Игра приостановлена</div>
+        <div class="civ-modal-buttons">
+            <button class="civ-btn" id="pauseNewGame">🆕 Новая игра</button>
+            <button class="civ-btn" id="pauseSave">💾 Сохранить</button>
+            <button class="civ-btn" id="pauseLoad">📂 Загрузить</button>
+            <button class="civ-btn civ-btn-danger" id="pauseExit">🚪 Выйти</button>
+        </div>
+        <button class="civ-btn civ-btn-ghost" id="pauseClose" style="margin-top:14px;">▶️ Продолжить (Esc)</button>
+    </div>
+</div>
+
+
+<div id="confirm-box" class="civ-modal">
+    <div class="civ-modal-inner">
+        <div class="civ-modal-frame"></div>
+        <div class="civ-modal-title" id="confirmTitle">Подтверждение</div>
+        <div class="civ-modal-body" id="confirmText">Вы уверены?</div>
+        <div class="civ-modal-buttons">
+            <button class="civ-btn civ-btn-primary" id="confirmYes">✅ Да</button>
+            <button class="civ-btn civ-btn-ghost" id="confirmNo">❌ Отмена</button>
+        </div>
+    </div>
+</div>
+
+<div id="alert-box" class="civ-modal">
+    <div class="civ-modal-inner">
+        <div class="civ-modal-frame"></div>
+        <div class="civ-modal-title" id="alertTitle">Уведомление</div>
+        <div class="civ-modal-body" id="alertText"></div>
+        <div class="civ-modal-buttons">
+            <button class="civ-btn civ-btn-primary" id="alertOk">ОК</button>
+        </div>
+    </div>
+</div>
+
+
+
 <script>
 (function() {
 
@@ -1167,15 +1673,49 @@ const GRASS_REMOVE_TIME = 5500;    // ещё через 8 сек исчезае�
 const bgMusic = document.getElementById('bgMusic');
 let musicStarted = false;
 
+
 function startMusic() {
     if (!bgMusic) return;
-    if (musicStarted && !bgMusic.paused) return;
-    bgMusic.volume = 0.5; // громкость 0..1
-    bgMusic.play().then(() => {
-        musicStarted = true;
-    }).catch(err => {
-        console.warn('Не удалось запустить музыку:', err);
-    });
+    if (!bgMusic.paused) return;                 // уже играет — не трогаем
+    if (musicStarted) {                          // была на паузе — продолжаем
+        bgMusic.play().catch(()=>{});
+        return;
+    }
+    bgMusic.volume = 0.5;
+    bgMusic.play().then(() => { musicStarted = true; })
+        .catch(err => console.warn('Не удалось запустить музыку:', err));
+}
+
+function pauseMusic() {
+    if (!bgMusic) return;
+    bgMusic.pause();                             // currentTime НЕ сбрасываем
+}
+
+
+// Автозапуск музыки после первого клика пользователя (браузеры блокируют автоплей)
+function startMusicOnce() {
+    startMusic();
+    document.removeEventListener('click', startMusicOnce);
+    document.removeEventListener('keydown', startMusicOnce);
+}
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('click', startMusicOnce);
+document.addEventListener('keydown', startMusicOnce);
+
+function resumeMusic() {
+    if (!bgMusic) return;
+    if (!musicStarted) { startMusic(); return; }
+    bgMusic.play().catch(()=>{});
 }
 
 function stopMusic() {
@@ -1186,18 +1726,8 @@ function stopMusic() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+document.addEventListener('click', startMusicOnce);
+document.addEventListener('keydown', startMusicOnce);
 
 
 
@@ -1628,6 +2158,8 @@ let totalCreatures = { firebird:0, zmey:0, volkolak:0, nochnitsa:0, basilisk:0, 
     let nextResourceId = 1, buildingMode = null, well = null;
     let gameLoopInterval = null, levelStartTime = 0, levelTimer = null;
     let isLevelComplete = false;
+let isPaused = false;
+let pausedAt = 0;
     let isTimeUp = false;
     let timeLeft = 0;
     let popupTimer = null, animationFrame = null, previewElement = null;
@@ -2536,12 +3068,25 @@ else if (goal.type==='creature') { const t=CREATURE_TYPES[goal.id]; emoji=t?t.em
         if (isLevelComplete) { sellAllBtn.classList.add('level-complete'); sellAllBtn.textContent='✅ Уровень пройден!'; }
         else { sellAllBtn.classList.remove('level-complete'); sellAllBtn.textContent='💰 Продать все'; }
     }
-    function showHarvestPopup(text) {
-        popup.textContent = text || '✨ Собрано!';
-        popup.classList.add('show');
-        if (popupTimer) clearTimeout(popupTimer);
-        popupTimer = setTimeout(()=>popup.classList.remove('show'), 900);
+function showHarvestPopup(text, type) {
+    popup.textContent = text || '✨ Собрано!';
+    popup.classList.remove('popup-success', 'popup-error', 'popup-info');
+
+    // Автоопределение типа по эмодзи, если тип не задан
+    if (!type) {
+        if (/❌|⏳|💀|🔒/.test(text)) type = 'error';
+        else if (/✅|✨|💰|🎉|🏆|🏁/.test(text)) type = 'success';
+        else if (/💧|🔨|🏗️|👤|🔄|📂|💾/.test(text)) type = 'info';
     }
+    if (type) popup.classList.add('popup-' + type);
+
+    popup.classList.add('show');
+    if (popupTimer) clearTimeout(popupTimer);
+    popupTimer = setTimeout(() => {
+        popup.classList.remove('show');
+        setTimeout(() => popup.classList.remove('popup-success','popup-error','popup-info'), 300);
+    }, 1200);
+}
     function getFieldSize() { const rect = field.getBoundingClientRect(); return { w: field.clientWidth || rect.width || 600, h: field.clientHeight || rect.height || 400 }; }
     function randomPosition() { const {w,h}=getFieldSize(); const size=50; return { x: Math.random()*(w-size-10)+5, y: Math.random()*(h-size-10)+5 }; }
     function isPositionFree(x,y,size=64,ignoreWell=false,ignoreGrass=false) {
@@ -2748,6 +3293,7 @@ function refillWell() {
         if (text) text.textContent=`❤️ ${Math.floor(c.hp)}`;
         if (c.hp<=0) { c.alive=false; c.element.classList.remove('walking'); c.element.classList.add('dead'); if (c.dropInterval) { clearInterval(c.dropInterval); c.dropInterval=null; } setTimeout(()=>{ if(c.element?.parentNode) c.element.remove(); },5000); updateUI(); showHarvestPopup(`💀 ${CREATURE_TYPES[c.type].label} умер`); }
     }function processHunger() {
+if (isLevelComplete || isTimeUp || isPaused) return;
     if (isLevelComplete || isTimeUp) return;
     for (let c of creatures) {
         if (!c.alive) continue;
@@ -2813,6 +3359,7 @@ function applyHungerTick(c) {
     }
 }
     function updateMovement() {
+ if (isPaused) { animationFrame = null; return; }
         for (let c of creatures) {
             if (!c.alive||!c.element?.parentNode) continue;
             const {w,h}=getFieldSize(); const margin=40;
@@ -3080,7 +3627,133 @@ renderLevelMenu();
         reader.readAsText(file);
     }
 
+
+function pauseGame() {
+    if (isPaused || isLevelComplete) return;
+    isPaused = true;
+    pausedAt = Date.now();
+
+    // Останавливаем музыку
+    stopMusic();
+
+    // Останавливаем таймер уровня
+    if (levelTimer) { clearInterval(levelTimer); levelTimer = null; }
+
+    // Останавливаем игровой цикл (голод, проверка целей)
+    if (gameLoopInterval) { clearInterval(gameLoopInterval); gameLoopInterval = null; }
+
+    // Останавливаем анимацию движения
+    if (animationFrame) { cancelAnimationFrame(animationFrame); animationFrame = null; }
+
+    // Ставим на паузу всех существ (drop-интервалы)
+    for (let c of creatures) {
+        if (c.dropInterval) { clearInterval(c.dropInterval); c.dropInterval._paused = true; c.dropInterval = null; }
+    }
+
+    // Показываем окно паузы
+    document.getElementById('pause-box').classList.add('show');
+}
+
+function resumeGame() {
+    if (!isPaused) return;
+    isPaused = false;
+
+    // Сдвигаем время старта уровня, чтобы таймер не «съел» паузу
+    if (pausedAt > 0) {
+        levelStartTime += (Date.now() - pausedAt);
+        pausedAt = 0;
+    }
+
+    // Возобновляем музыку
+    resumeMusic();
+
+    // Возобновляем таймер
+    if (!levelTimer) levelTimer = setInterval(updateLevelTimer, 1000);
+
+    // Возобновляем игровой цикл
+    if (!gameLoopInterval) gameLoopInterval = setInterval(() => { processHunger(); refillWell(); checkLevelCompletion(); }, 2000);
+
+    // Возобновляем движение
+    if (!animationFrame) updateMovement();
+
+    // Возобновляем drop-интервалы существ
+    const intervals = { firebird:6000, zmey:7000, volkolak:8000, nochnitsa:9000, basilisk:10000, unicorn:12000 };
+    for (let c of creatures) {
+        if (!c.alive || !c.element?.parentNode) continue;
+        if (!c.dropInterval) {
+            const base = intervals[c.type] || 8000;
+            const interval = base + (Math.random()-0.5)*base*0.6;
+            c.dropInterval = setInterval(() => {
+                if (isLevelComplete || isPaused || !c.alive || !c.element?.parentNode) {
+                    if (c.dropInterval && (isLevelComplete || !c.alive)) { clearInterval(c.dropInterval); c.dropInterval = null; }
+                    return;
+                }
+                const ox = (Math.random()-0.5)*40, oy = (Math.random()-0.5)*40;
+                dropResource(c.type, c.x+ox, c.y+oy);
+                const svg = c.element.querySelector('svg');
+                if (svg) { svg.style.transform='scale(1.2)'; setTimeout(()=>{ if(svg) svg.style.transform='scale(1)'; },200); }
+            }, interval);
+        }
+    }
+
+    document.getElementById('pause-box').classList.remove('show');
+}
+
+function togglePause() {
+    if (isPaused) resumeGame();
+    else pauseGame();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------- Кастомные confirm / alert ----------
+let _confirmResolve = null;
+function civConfirm(text, title = 'Подтверждение') {
+    return new Promise(resolve => {
+        _confirmResolve = resolve;
+        document.getElementById('confirmTitle').textContent = title;
+        document.getElementById('confirmText').innerHTML = text;
+        document.getElementById('confirm-box').classList.add('show');
+    });
+}
+document.getElementById('confirmYes').addEventListener('click', () => {
+    document.getElementById('confirm-box').classList.remove('show');
+    if (_confirmResolve) { _confirmResolve(true); _confirmResolve = null; }
+});
+document.getElementById('confirmNo').addEventListener('click', () => {
+    document.getElementById('confirm-box').classList.remove('show');
+    if (_confirmResolve) { _confirmResolve(false); _confirmResolve = null; }
+});
+
+function civAlert(text, title = 'Уведомление') {
+    document.getElementById('alertTitle').textContent = title;
+    document.getElementById('alertText').innerHTML = text;
+    document.getElementById('alert-box').classList.add('show');
+}
+document.getElementById('alertOk').addEventListener('click', () => {
+    document.getElementById('alert-box').classList.remove('show');
+});
+
+
+
+function gameExit(){window.close()}
+
+
+
     function initGame() {
+
+document.getElementById('btnExitX').addEventListener('click', gameExit);
+
 
 document.getElementById('reset-btn')
     .addEventListener('click', resetCurrentLevel);
@@ -3122,6 +3795,89 @@ document.getElementById('reset-btn')
         field.addEventListener('mouseover', (e)=>{ const c=e.target.closest('.creature'); if(c) c.style.filter='drop-shadow(0 0 20px #f5d742)'; });
         field.addEventListener('mouseout', (e)=>{ const c=e.target.closest('.creature'); if(c) c.style.filter='drop-shadow(0 8px 12px rgba(0,0,0,0.7))'; });
         console.log('🌿 Сказочная ферма — славянские сказы. Об авторе: Панченко М. А.');
+// ---- Горячие клавиши ----
+document.addEventListener('keydown', (e) => {
+    // Не срабатываем, если игра ещё не начата (меню уровней / меню героя / главное меню)
+    const gameActive = !document.getElementById('game-wrapper').classList.contains('hidden')
+                    && levelMenu.classList.contains('hidden')
+                    && !heroMenu.classList.contains('show')
+                    && !mainMenu.classList.contains('hidden') === false;
+    // Более простая проверка: игра идёт, если game-wrapper виден и меню уровней скрыто
+    const inGame = !document.getElementById('game-wrapper').classList.contains('hidden')
+                && levelMenu.classList.contains('hidden');
+
+    if (!inGame) return;
+
+    if (e.code === 'Space') {
+        e.preventDefault();
+        togglePause();
+    } else if (e.code === 'Escape') {
+        e.preventDefault();
+        if (!isPaused) pauseGame();
+        else resumeGame();
+    }
+});
+
+// ---- Кнопки окна паузы ----
+document.getElementById('pauseClose').addEventListener('click', resumeGame);
+
+document.getElementById('pauseNewGame').addEventListener('click', async () => {
+    const ok = await civConfirm('Начать новую игру?<br>Текущий прогресс уровня будет потерян.', 'Новая игра');
+    if (!ok) return;
+    resumeGame();
+    levelStars = new Array(20).fill(0);
+    levelCompleted = new Array(20).fill(false);
+    unlockedLevel = 0;
+    selectedHero = null;
+    clearField();
+    if (gameLoopInterval) { clearInterval(gameLoopInterval); gameLoopInterval = null; }
+    if (levelTimer) { clearInterval(levelTimer); levelTimer = null; }
+    if (animationFrame) { cancelAnimationFrame(animationFrame); animationFrame = null; }
+    document.getElementById('game-wrapper').classList.add('hidden');
+    levelMenu.classList.add('hidden');
+    levelComplete.classList.remove('show');
+    heroMenu.classList.remove('show');
+    mainMenu.classList.remove('hidden');
+    renderLevelMenu();
+});
+
+document.getElementById('pauseSave').addEventListener('click', () => {
+    saveGame();
+    showHarvestPopup('💾 Игра сохранена');
+});
+
+document.getElementById('pauseLoad').addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e) => {
+        const f = e.target.files[0];
+        if (f) {
+            resumeGame();
+            loadGameFile(f);
+        }
+    };
+    input.click();
+});
+
+document.getElementById('pauseExit').addEventListener('click', async () => {
+    const ok = await civConfirm('Выйти из игры?<br>Несохранённый прогресс будет потерян.', 'Выход');
+    if (!ok) return;
+    resumeGame();
+    clearField();
+    if (gameLoopInterval) { clearInterval(gameLoopInterval); gameLoopInterval = null; }
+    if (levelTimer) { clearInterval(levelTimer); levelTimer = null; }
+    if (animationFrame) { cancelAnimationFrame(animationFrame); animationFrame = null; }
+    stopMusic();
+    document.getElementById('game-wrapper').classList.add('hidden');
+    levelMenu.classList.add('hidden');
+    levelComplete.classList.remove('show');
+    heroMenu.classList.remove('show');
+    mainMenu.classList.remove('hidden');
+});
+
+
+
     }
 function renderHeroMenu() {
     heroGrid.innerHTML = '';

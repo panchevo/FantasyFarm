@@ -1578,14 +1578,14 @@ document.addEventListener('keydown', startMusicOnce);
 const LEVELS = [
     { id:1,  name:"Перо Жар-птицы",
       goals:[{type:'resource',id:'firebird',count:5}],
-      startGems:15, startWater:15, startCreatures:['firebird'],
+      startGems:0, startWater:15, startCreatures:['firebird'],
       availableCreatures:['firebird'], availableBuildings:[],
       starThresholds:[80,120,180] },
 
     { id:2,  name:"Дело Василисы",
       goals:[{type:'creature',id:'firebird',count:3}],
-      startGems:20, startWater:15, startCreatures:['firebird'],
-      availableCreatures:['firebird','zmey'], availableBuildings:['nest'],
+      startGems:20, startWater:15, startCreatures:[''],
+      availableCreatures:['firebird'], availableBuildings:['nest'],
       starThresholds:[100,150,220] },
 
     { id:3,  name:"Огневушка-поскакушка",

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Сказочная ферма — Славянские сказы</title>
+<title>Сказочная ферма</title>
 <style>
 :root {
     --civ-parchment: #e8d9b5;
@@ -1203,7 +1203,7 @@ function stopMusic() {
 
     const LEVELS = [
         { id:1, name:"Перо Жар-птицы", goals:[{type:'resource',id:'firebird',count:5}], startGems:0, startWater:10, availableCreatures:['firebird'], availableBuildings:[], starThresholds:[60,45,30] },
-        { id:2, name:"Дело Василисы", goals:[{type:'crafted',id:'nest',count:3},{type:'creature',id:'firebird',count:7}], startGems:25, startWater:15, availableCreatures:['firebird','zmey'], availableBuildings:['nest'], starThresholds:[90,70,50] },
+        { id:2, name:"Дело Василисы", goals:[{type:'creature',id:'firebird',count:4}], startGems:0, startWater:15, availableCreatures:['firebird','zmey'], availableBuildings:['nest'], starThresholds:[90,70,50] },
         { id:3, name:"Огневушка-поскакушка", goals:[{type:'resource',id:'zmey',count:5},{type:'creature',id:'zmey',count:3}], startGems:20, startWater:12, availableCreatures:['zmey','firebird'], availableBuildings:[], starThresholds:[75,55,35] },
         { id:4, name:"Во Кузнице", goals:[{type:'crafted',id:'nest',count:4},{type:'crafted',id:'forge',count:2},{type:'score',count:100}], startGems:30, startWater:15, availableCreatures:['firebird','zmey'], availableBuildings:['nest','forge'], starThresholds:[120,90,60] },
         { id:5, name:"Серый Волк", goals:[{type:'resource',id:'volkolak',count:10},{type:'creature',id:'volkolak',count:5}], startGems:30, startWater:15, availableCreatures:['volkolak','firebird','zmey'], availableBuildings:[], starThresholds:[100,75,50] },
@@ -1215,7 +1215,7 @@ function stopMusic() {
         { id:11, name:"Философский Камень", goals:[{type:'resource',id:'unicorn',count:8}], startGems:50, startWater:20, availableCreatures:['unicorn','basilisk','firebird'], availableBuildings:[], starThresholds:[120,90,60] },
         { id:12, name:"Эликсир Мудрости", goals:[{type:'crafted',id:'philosopher',count:12},{type:'creature',id:'unicorn',count:3}], startGems:60, startWater:25, availableCreatures:['unicorn','basilisk','nochnitsa'], availableBuildings:['philosopher'], starThresholds:[200,150,100] },
         { id:13, name:"Сбор Урожая", goals:[{type:'resource',id:'firebird',count:20},{type:'resource',id:'zmey',count:15},{type:'resource',id:'volkolak',count:10}], startGems:45, startWater:25, availableCreatures:['firebird','zmey','volkolak'], availableBuildings:[], starThresholds:[160,120,80] },
-        { id:14, name:"Мастерская Гнома", goals:[{type:'crafted',id:'nest',count:10},{type:'crafted',id:'forge',count:10},{type:'score',count:500}], startGems:55, startWater:25, availableCreatures:['firebird','zmey','volkolak'], availableBuildings:['nest','forge'], starThresholds:[200,150,100] },
+        { id:14, name:"Мастерская Оборотня", goals:[{type:'crafted',id:'nest',count:10},{type:'crafted',id:'forge',count:10},{type:'score',count:500}], startGems:55, startWater:25, availableCreatures:['firebird','zmey','volkolak'], availableBuildings:['nest','forge'], starThresholds:[200,150,100] },
         { id:15, name:"Поле Чудес", goals:[{type:'resource',id:'nochnitsa',count:20},{type:'resource',id:'basilisk',count:10},{type:'creature',id:'nochnitsa',count:8}], startGems:55, startWater:25, availableCreatures:['nochnitsa','basilisk','volkolak'], availableBuildings:[], starThresholds:[180,140,100] },
         { id:16, name:"Мистическая Поляна", goals:[{type:'crafted',id:'lunar',count:15},{type:'crafted',id:'philosopher',count:12},{type:'score',count:700}], startGems:65, startWater:30, availableCreatures:['nochnitsa','unicorn','basilisk'], availableBuildings:['lunar','philosopher'], starThresholds:[250,190,130] },
         { id:17, name:"Темная Лощина", goals:[{type:'crafted',id:'gorgon',count:30},{type:'score',count:1000}], startGems:70, startWater:30, availableCreatures:['basilisk','unicorn','nochnitsa'], availableBuildings:['gorgon'], starThresholds:[300,220,150] },
